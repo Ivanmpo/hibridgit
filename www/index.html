@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+
+        <link href="asd/open-iconic-bootstrap.css" rel="stylesheet">
+        <style type="text/css">
+            body{
+                background: #ECECEC;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="container mt-5" id="intro" >
+
+
+            <div class="col-md-12 mb-5">
+                <img src="logo_sibtraa2.png" class="rounded mx-auto d-block" alt="...">
+            </div>
+            <div class="card border-primary mb-3 " >
+                <div class="card-header text-center"><strong>Ingreso al Sistema</strong></div>
+                <div class="card-body text-primary">
+                    <h5 class="card-title">Bienvenido</h5>
+                    <!--
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    -->
+                    <form action="#" id="enter" >
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="form-group">
+                                    <label for="usuario"><span class="oi oi-person"></span> Usuario</label>
+                                    <input id="user" name="user" type="text" class="form-control" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="password"><span class="oi oi-key"></span> Contraseña</label>
+
+                                    <input id="pass" name="pass" type="password" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 ">
+                                <div class="form-group">
+                                    <button type="submit" id="login" name="login" class="btn btn-primary btn-lg btn-block"><i class="fas fa-sign-in-alt"></i> Entrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+
+        <script src="jquery-3.3.1.min.js"></script>
+        <script src="login.js"></script>
+    </body>
+</html>
