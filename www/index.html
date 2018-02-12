@@ -8,12 +8,31 @@
 
 
         <link href="asd/open-iconic-bootstrap.css" rel="stylesheet">
+
+
+
+
         <style type="text/css">
+            /* Estilo superpuesto de pagina*/
             body{
                 background: #ECECEC;
             }
-        </style>
 
+            #user, #pass{
+                -moz-border-radius: 1em;
+                -webkit-border-radius: 1em;
+                border-radius: 1em;
+
+            }
+        </style>
+        
+        <script type="text/javascript">
+            /*===============================================================*/
+            /* ROMPE SESSIONES*/
+            if (sessionStorage.getItem('user_id') !== null) {
+                window.location.href = "inicio.html";
+            }
+        </script>
     </head>
     <body>
         <div class="container mt-5" id="intro" >
@@ -23,19 +42,19 @@
                 <img src="logo_sibtraa2.png" class="rounded mx-auto d-block" alt="...">
             </div>
             <div class="card border-primary mb-3 " >
-                <div class="card-header text-center"><strong>Ingreso al Sistema</strong></div>
+                <div class="card-header text-center"><strong>Inicio de Sesión</strong></div>
                 <div class="card-body text-primary">
                     <h5 class="card-title">Bienvenido</h5>
                     <!--
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     -->
-                    <form action="#" id="enter" >
+                    <form action="#" id="enter" method="post" >
                         <div class="row">
                             <div class="col-md-12">
 
                                 <div class="form-group">
                                     <label for="usuario"><span class="oi oi-person"></span> Usuario</label>
-                                    <input id="user" name="user" type="text" class="form-control" >
+                                    <input id="user" name="user" type="text" class="form-control input-circle" placeholder="Usuario">
                                 </div>
                             </div>
                         </div>
@@ -44,13 +63,24 @@
                                 <div class="form-group">
                                     <label for="password"><span class="oi oi-key"></span> Contraseña</label>
 
-                                    <input id="pass" name="pass" type="password" class="form-control">
+                                    <input id="pass" name="pass" type="password" class="form-control" placeholder="Contraseña">
                                 </div>
                             </div>
                         </div>
+
                         <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-check ">
+                                    <input type="checkbox" class="form-check-input" id="remember">
+                                    <label class="form-check-label" for="remember">Recordar usuario</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row mt-3">
                             <div class="col-md-12 ">
-                                <div class="form-group">
+                                <div class="form-group ">
                                     <button type="submit" id="login" name="login" class="btn btn-primary btn-lg btn-block"><i class="fas fa-sign-in-alt"></i> Entrar</button>
                                 </div>
                             </div>

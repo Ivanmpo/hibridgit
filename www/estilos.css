@@ -4,10 +4,12 @@ header {
 
 
 header nav{
-    background: #0D8CFF;
+    background: #2478CC;
 }
 
-header A:link {text-decoration:none}
+header A:link {
+    text-decoration:none
+}
 .menu_bar{
     display: none;
 
@@ -27,7 +29,7 @@ header nav ul li{
 header nav ul li a{
     color: white;
     text-decoration: none;
-    padding: 20px;
+    padding: 0.85em;
     display: block;
 }
 
@@ -59,7 +61,7 @@ header nav ul li a:focus{
         left: -100%;
         margin: 0;
         position: fixed;
-
+        z-index: 100;
     }
 
     header nav ul li{
@@ -71,9 +73,13 @@ header nav ul li a:focus{
 
     .menu_bar{
         display: block;
-        padding: 20px;
+        padding-bottom: 0.75em;
+        padding-top: 0.85em;
+        padding-left: 1.25em;
+        padding-right: 1.25em;        
+
         width: 100%;
-        background: #0C46E8;
+        background: #174B7F;
 
     }
 
@@ -83,13 +89,13 @@ header nav ul li a:focus{
         color:white;
         text-decoration: none;
         font-weight: bold;
-        font-size: 20px;
+        font-size: 1.2em;
     }
 
 
     .menu_bar span{
         float: right;
-        font-size: 30px;
+        font-size: 1.3em;
     }
 
 
