@@ -4,14 +4,12 @@
         <title>Welcome</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <!-- Carga de Bootstrap e OI Icons -->
+        <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="font/open-iconic-bootstrap.css" rel="stylesheet">
+        <!-- Fin Bootstrap e OI Icons -->
 
-
-        <link href="asd/open-iconic-bootstrap.css" rel="stylesheet">
-
-
-
-
+        <!-- CSS -->
         <style type="text/css">
             /* Estilo superpuesto de pagina*/
             body{
@@ -25,22 +23,35 @@
 
             }
         </style>
+        <!-- Fin CSS -->
         
+        <!--Scripts (?) -->
         <script type="text/javascript">
+            /*
+            const baseURL = getUrl .protocol + "//" + getUrl.host + "/";
+            const baseView = baseURL + "Vistas/";
+            const baseJs = baseURL + "js/";
+            const baseCss = baseURL + "css/";
+            */
             /*===============================================================*/
             /* ROMPE SESSIONES*/
             if (sessionStorage.getItem('user_id') !== null) {
-                window.location.href = "inicio.html";
+                window.location.href = "Vistas/inicio.html";
             }
         </script>
+        <!-- Fin Scripts -->
+        
+        
     </head>
     <body>
         <div class="container mt-5" id="intro" >
 
-
+            <!-- LOGO-->
             <div class="col-md-12 mb-5">
                 <img src="logo_sibtraa2.png" class="rounded mx-auto d-block" alt="...">
             </div>
+            <!-- Fin Logo -->
+            <!-- Contenido -->
             <div class="card border-primary mb-3 " >
                 <div class="card-header text-center"><strong>Inicio de Sesión</strong></div>
                 <div class="card-body text-primary">
@@ -88,11 +99,12 @@
                     </form>
                 </div>
             </div>
-
+            <!-- Fin Contenido-->
 
         </div>
-
-        <script src="jquery-3.3.1.min.js"></script>
+        <!-- Carga JQUERY y otros scripts Necesarios-->
+        <script src="js/jquery-3.3.1.min.js"></script>
         <script src="login.js"></script>
+        <!-- Fin Carga Scripts -->
     </body>
 </html>

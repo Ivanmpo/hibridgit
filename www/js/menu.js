@@ -5,7 +5,8 @@ var contador = 1;
 
 
 function main() {
-
+    
+    $("#contenido").load("principal/principal.html");
     /*===============================================================*/
     /* Funcionalidad basica del menu */
     $('.menu_bar #dropmenu').click(function () {
@@ -28,20 +29,29 @@ function main() {
     /*===============================================================*/
     /* Funcionalidad propia del menu de navegacion */
     $("#pag1").click(function (event) {
-        $("#contenido").load("opciones.html");
+        $("#contenido").fadeOut('fast');
+        $("#contenido").load("principal/principal.html");
+        $("#contenido").fadeIn('fast');
+        
         $('nav').animate({
-            
+
             left: '-100%'
         });
         contador = 1;
     });
-  
+
     $("#pag2").click(function (event) {
-        $("#contenido").load("saludar.html");
+        
+        
+        $("#contenido").fadeOut('fast');
+        $("#contenido").load("empresas/empresas.html");
+        $("#contenido").fadeIn('fast');
+
+       
         $('nav').animate({
             left: '-100%'
         });
-        
+
         contador = 1;
     });
 
@@ -58,17 +68,21 @@ function main() {
     $('header').click(function (e) {
         e.stopPropagation();
     });
-    
+
     /*===============================================================*/
     /* LOGOUT */
-     $("#mLogout").click(function (event) {
-         
-        sessionStorage.clear();
-        if(localStorage.getItem("remember")!=="1"){
-            localStorage.removeItem("user");    
+    $("#mLogout").click(function (event) {
+
+        try {
+            sessionStorage.clear();
+            if (localStorage.getItem("remember") !== "1") {
+                localStorage.removeItem("user");
+            }
+            alert("Has sido desconectado satisfactoriamente :)");
+        } catch (err) {
+            alert(err.message);
         }
-        alert("Hasta luego JO LA PERRA");
-        window.location.href = "index.html";
+        window.location.href = "../index.html";
     });
     /*===============================================================*/
 }

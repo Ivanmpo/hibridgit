@@ -30,7 +30,7 @@ $(document).ready(function () {
 
 
     if (localStorage.getItem("user") !== "") {
-        $('#user').val(localStorage.getItem("user"));
+        $('#user').val(localStorage.getItem("Usuario"));
     }
     
     if (localStorage.getItem("remember") ==="1") {
@@ -61,18 +61,30 @@ $(document).ready(function () {
                 } else {
                     alert(dataa['mensaje']);
                     if($('#remember').prop('checked')){
-                        localStorage.setItem("user", dataa['usrlogin']);
+                        localStorage.setItem("Usuario", dataa['usrlogin']);
+                        localStorage.setItem("Nombre", dataa['usrnombre']);
+                        localStorage.setItem("Apellido", dataa['usrapellido']);
+                        
                         localStorage.setItem("remember", '1');
                         
+                        sessionStorage.setItem("tipo", '1');
+                        
                     }else{
-                        if(localStorage.getItem("user")!==null){
-                            localStorage.removeItem("user");
+                        if(localStorage.getItem("Usuario")!==null){
+                            localStorage.removeItem("Usuario");
+                            localStorage.removeItem("Nombre");
+                            localStorage.removeItem("Apellido");
                         }
-                        sessionStorage.setItem("user", dataa['usrlogin']);
+                        sessionStorage.setItem("Usuario", dataa['usrlogin']);
+                        sessionStorage.setItem("Nombre", dataa['usrnombre']);
+                        sessionStorage.setItem("Apellido", dataa['usrapellido']);
+                        
                         localStorage.removeItem("remember");
+                        
+                        sessionStorage.setItem("tipo", '2');    //el tipo ayuda a posteriores js a diferenciar a la persona si guarda datos. 1->local 2->sessiion
                     }
                     sessionStorage.setItem("user_id", dataa['usrid']);
-                    window.location.href = "inicio.html";
+                    window.location.href ="Vistas/inicio.html";
                 }
 
 
