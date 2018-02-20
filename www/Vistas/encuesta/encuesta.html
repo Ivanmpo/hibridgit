@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <!-- Carga de Bootstrap e OI Icons -->
+        <link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="../../font/open-iconic-bootstrap.css" rel="stylesheet">
+        <!-- Fin Carga de Bootstrap -->
+
+        <!-- Rompe sesion -->
+        <script src="../../js/broker.js"></script>
+        <!-- Fin rompe sesion-->
+
+
+    </head>
+
+    <body>
+
+        <div class="container pt-3 pb-3">
+            <div id="status" ></div>
+            <!--<input type="text" id="id" name="id"><br/>-->
+
+            <div class="card border-success">
+                <div class="card-header bg-success text-white">
+                    <h3 class="card-title">Encuesta</h3>
+                </div>
+                <div class="card-body"> 
+                    <h5 class="card-title">Crear <strong>nueva</strong> encuesta</h5>
+                    <form>
+                        
+                        <div class="form-group row">
+                            
+                            <label for="filial_rut" class="col-4 col-form-label">RUT Filial</label>
+                            <div class="col-8">
+                                <input type="text" readonly class="form-control-plaintext" id="filial_rut" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="filial_nombre" class="col-4 col-form-label">Filial</label>
+                            <div class="col-8">
+                                <input type="text" readonly class="form-control-plaintext" id="filial_nombre" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="empresa_rut" class="col-4 col-form-label">RUT Empresa</label>
+                            <div class="col-8">
+                                <input type="text" readonly class="form-control-plaintext" id="empresa_rut" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="empresa_nombre" class="col-4 col-form-label">Empresa:</label>
+                            <div class="col-8">
+                                <input type="text" readonly class="form-control-plaintext" id="empresa_nombre" value="">
+                            </div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+
+
+                        <div class="form-group">
+                            <label for="enc_nombre">Nombres </label>
+                            <input type="text" class="form-control " id="enc_nombres" name="enc_nombres" placeholder="Nombres">
+                        </div>
+                        <div class="form-group">
+                            <label for="enc_apellido_p">Apellido Paterno </label>
+                            <input type="text" class="form-control" id="enc_apellido_p" name="enc_apellido_p" placeholder="Apellido Paterno">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="enc_apellido_m">Apellido Materno </label>
+                            <input type="text" class="form-control" id="enc_apellido_m" name="enc_apellido_m" placeholder="Apellido Materno">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-8">
+                                <label for="enc_run">RUN Trabajador</label>
+                                <input type="text" class="form-control" id="enc_run" name="enc_run" placeholder="RUT">
+                            </div>
+
+                            <div class="col-4">
+                                <label for="enc_run"> DV</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text bg-success text-white">-</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="enc_dv" name="enc_dv" placeholder="DV" size="1">
+                                </div>
+                            </div>
+
+
+
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sel_region">Regi&oacute;n <span> * </span></label>
+                            <select class="form-control" name="sel_region" id="sel_region">
+                                <option value="">Seleccione una opci&oacute;n</option>
+                            </select>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="sel_comuna">Comuna <span> * </span></label>
+                            <select class="form-control" name="sel_comuna" id="sel_comuna">
+                                <option value="">Seleccione una opci&oacute;n</option>                                   
+                            </select>
+                        </div>
+                        <div class="form-row pt-5 ">
+                            <input type="button" class="btn btn-success btn-block" onclick="crear_encuesta()" value="Crear">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <!-- Carga JQUERY y otros scripts Necesarios-->
+        <script src="../../js/jquery-3.3.1.min.js"></script>
+        <!-- Fin Carga Scripts -->
+
+
+        <script type="text/javascript" src="encuesta.js"></script>
+        <script type="text/javascript">
+                                //borrar_db();
+                                //baseDeDatos();	
+                                crearTablas();
+                                //  crear_encuesta();
+
+                                //nueva_encuesta();
+                                //recuperar();
+        </script>
+    </body>
+
+</html>

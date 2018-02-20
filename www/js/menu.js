@@ -5,8 +5,8 @@ var contador = 1;
 
 
 function main() {
+
     
-    $("#contenido").load("principal/principal.html");
     /*===============================================================*/
     /* Funcionalidad basica del menu */
     $('.menu_bar #dropmenu').click(function () {
@@ -29,29 +29,28 @@ function main() {
     /*===============================================================*/
     /* Funcionalidad propia del menu de navegacion */
     $("#pag1").click(function (event) {
-        $("#contenido").fadeOut('fast');
-        $("#contenido").load("principal/principal.html");
-        $("#contenido").fadeIn('fast');
-        
+
         $('nav').animate({
 
             left: '-100%'
+
+        }, 'fast', function () {
+            window.location.href = "../inicio/inicio.html";
         });
         contador = 1;
     });
 
     $("#pag2").click(function (event) {
-        
-        
-        $("#contenido").fadeOut('fast');
-        $("#contenido").load("empresas/empresas.html");
-        $("#contenido").fadeIn('fast');
 
-       
+
+        $("body div#contenido").fadeOut('fast');
         $('nav').animate({
             left: '-100%'
-        });
+        }, 'fast', function () {
 
+            window.location.href = "../empresas/empresas.html";
+
+        });
         contador = 1;
     });
 
@@ -82,7 +81,10 @@ function main() {
         } catch (err) {
             alert(err.message);
         }
-        window.location.href = "../index.html";
+        window.location.href = "../../index.html";
     });
     /*===============================================================*/
 }
+
+
+

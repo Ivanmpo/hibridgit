@@ -1,6 +1,7 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
     <head>
+        <title>Inicio</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Carga de Bootstrap e OI Icons -->
@@ -12,17 +13,27 @@
         <link rel="stylesheet" href="../../estilos.css">
         <!-- Fin estilos del menu-->
 
+        
         <!-- Rompe sesion -->
         <script src="../../js/broker.js"></script>
         <!-- Fin rompe sesion-->
         
+        
+        <!--Scripts (?) -->
+        <script type="text/javascript">
+
+        </script>
+        <script src="../../js/jquery-3.3.1.min.js"></script>
+        <script src="../../js/bootstrap/bootstrap.js"></script>
+        <script src="../../js/menu.js" async="async"></script>
+        <!-- Fin scripts -->
     </head>
     <body>
         <!--=========================================================================================-->
         <!-- Inicio del Menu-->
         <header>
 
-            <div class="menu_bar bg-primary">
+            <div class="menu_bar">
                 <label class="bt-menu ">
                     <span id="dropmenu" class="oi oi-menu"></span>SIBTRA
                 </label>
@@ -42,36 +53,29 @@
         <!-- FIN DEL MENU-->
         <!--=========================================================================================-->
 
-        
-        
-        <div class="container-fluid" style="padding-top: 5em" id="contenido">
+        <div class="container" style="padding-top: 5em">
             <div id="aviso"></div>
-            <div class="col-md-12">
-            <h3>Empresas</h3>
+            <div class="card border-info">
+                <div class="card-header ">
+                    <img class="card-img-top mx-auto d-block rounded-circle img-thumbnail mt-3 " src="img/Paras.png" style="width: 15em" alt="Card image cap">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-primary" id="saludar"><span class="oi oi-person"></span> </h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
             </div>
-            <table class="table table-responsive table-hover pt-2" >
-                <thead class="text-white bg-primary" >
-                    <tr class="table-active">
-                        <th scope="col">RUT Filial</th>
-                        <th scope="col">Nombre Filial</th>
-                        <th scope="col">RUT Empresa</th>
-                        <th scope="col">Nombre Empresa</th>
-                        <th scope="col">Acción</th>
-                
-                    </tr>
-                </thead>
-                <tbody id="listaEmpresas">
 
-
-                </tbody>
-            </table>
         </div>
+
+
+
+
+
         
-        <script src="../../js/jquery-3.3.1.min.js"></script>
-        <script src="../../js/bootstrap/bootstrap.js"></script>
-        <script src="../../js/menu.js" async="async"></script>
-        
-        
-        <script async="async" src="empresas.js"></script>
+        <script src="inicio.js"></script>
+
+
+
+
     </body>
 </html>
