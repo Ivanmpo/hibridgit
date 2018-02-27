@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Agregar Familiar</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Carga de Bootstrap e OI Icons -->
+        <link href="../../../../../css/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="../../../../../font/open-iconic-bootstrap.css" rel="stylesheet">
+        <!-- Fin Carga de Bootstrap -->
+
+        <!-- Rompe sesion -->
+        <script src="../../../../../js/broker.js"></script>
+        <!-- Fin rompe sesion-->
+    </head>
+    <body>
+        
+        <ul class="nav nav-pills nav-fill ">
+            <li class="nav-item">
+                <a class="nav-link " href="../../../inicio/inicio.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="gotoplataforma" href="#">Plataforma</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link bg-secondary active" href="#">Agregar Familiar</a>
+            </li>
+        </ul>
+        
+        
+        
+        <div class="container pt-3 pb-3">
+            <div id="status" ></div>
+            <!--<input type="text" id="id" name="id">-->
+
+            <div class="card border-secondary">
+                <div class="card-header bg-secondary text-white">
+                    <h3 class="card-title">Encuesta Familia</h3>
+                </div>
+                <div class="card-body">
+
+                    <h3>Encuesta Familia</h3>
+                    <div class="form-group">
+                        <label for="fam_nombres">Nombres</label>
+                        <input type="text" class="form-control" id="fam_nombres" name="fam_nombres" placeholder="Nombres">
+                    </div>
+                    <div class="form-group">
+                        <label for="fam_apellido_p">Apellido Paterno</label>
+                        <input type="text" class="form-control" id="fam_apellido_p" name="fam_apellido_p" placeholder="Apellido Paterno">
+                    </div>
+                    <div class="form-group">
+                        <label for="fam_apellido_m">Apellido Materno</label>
+                        <input type="text" class="form-control" id="fam_apellido_m" name="fam_apellido_m" placeholder="Apellido Materno">
+                    </div>
+                    <div class="form-group">
+                        <label for="fam_run">Rut</label>
+                        <input type="text" class="form-control" id="fam_run" name="fam_run" placeholder="RUT">
+                        <label for="fam_dv">-</label>
+                        <input type="text" class="form-control" id="fam_dv" name="fam_dv" placeholder="DV" size="1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fam_fec_nacimiento">Fecha de nacimiento</label>
+                        <input type="text" class="form-control" id="fam_fec_nacimiento" name="fam_fec_nacimiento" placeholder="Fecha de nacimiento">
+                    </div>
+                    <div class="form-group">
+                        <p>Nacionalidad Chilena</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_chileno" name="nacionalidad_fam" value="1">
+                            <label for="fam_chileno">Si</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_no_chileno" name="nacionalidad_fam" value="2">
+                            <label for="fam_no_chileno">No</label>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <p>Genero</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_M" name="fam_genero" value="1">
+                            <label for="fam_M">Masculino</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_F" name="fam_genero" value="2">
+                            <label for="fam_F">Femenino</label>
+                        </div>
+                    </div>
+                    <div class="form-group pt-5 ">
+                        <input type="button" class="btn btn-secondary btn-block" onclick="guardar_encuesta_familia()" value="Guardar y seguir"> 
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Carga JQUERY y otros scripts Necesarios-->
+        <script src="../../../../../js/jquery-3.3.1.min.js"></script>
+        <!-- Fin Carga Scripts -->
+
+
+        <script type="text/javascript" src="agregarFamiliar.js"></script>
+        <script type="text/javascript">
+                            //borrar_db();
+                            //baseDeDatos();	
+
+                            crearTablas();
+                            //  crear_encuesta();
+
+                            //nueva_encuesta();
+                            //recuperar();
+        </script>
+    </body>
+</html>

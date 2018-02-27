@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Encuesta Vivienda</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Carga de Bootstrap e OI Icons -->
+        <link href="../../../../css/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="../../../../font/open-iconic-bootstrap.css" rel="stylesheet">
+        <!-- Fin Carga de Bootstrap -->
+
+    </head>
+    <body>
+        
+        <ul class="nav nav-pills nav-fill ">
+            <li class="nav-item">
+                <a class="nav-link " href="../../../inicio/inicio.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="gotoplataforma" href="#">Plataforma</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link bg-warning active" href="#">Encuesta Trabajador</a>
+            </li>
+        </ul>
+        
+        
+        <div class="container pt-3 pb-3">
+
+            <div id="aviso" ></div>
+
+            <div class="card border-warning">
+                <div class="card-header bg-warning text-white">
+                    <h3 class="card-title">Encuesta Vivienda</h3>
+                </div>
+                <div class="card-body">
+
+                    <h3>Encuesta Vivienda</h3>
+                    <div class="form-group">
+                        <p>Tenencia de la Vivienda</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="Propietario" name="viv_tenencia" value="1">
+                            <label for="Propietario">Propietario</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="pagando_div" name="viv_tenencia" value="2">
+                            <label for="pagando_div">Propietario Pagando Dividendo</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="Arrendatario" name="viv_tenencia" value="3">
+                            <label for="Arrendatario">Arrendatario</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="Usufructuario" name="viv_tenencia" value="4">
+                            <label for="Usufructuario">Usufructuario</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="Allegado" name="viv_tenencia" value="5">
+                            <label for="Allegado">Allegado</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="Toma" name="viv_tenencia" value="6">
+                            <label for="Toma">Toma</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="Cuidador" name="viv_tenencia" value="7">
+                            <label for="Cuidador">Cuidador</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="Sucesión" name="viv_tenencia" value="8">
+                            <label for="Sucesión">Sucesión</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_calle" name="viv_tenencia" value="9">
+                            <label for="s_calle">Situación de Calle</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <p>Tenencia del sitio</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_Propietario" name="sit_tenencia" value="1">
+                            <label for="s_Propietario">Propietario</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_pagando_div" name="sit_tenencia" value="2">
+                            <label for="s_pagando_div">Propietario Pagando Dividendo</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_Arrendatario" name="sit_tenencia" value="3">
+                            <label for="s_Arrendatario">Arrendatario</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_Usufructuario" name="sit_tenencia" value="4">
+                            <label for="s_Usufructuario">Usufructuario</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_Allegado" name="sit_tenencia" value="5">
+                            <label for="s_Allegado">Allegado</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_Toma" name="sit_tenencia" value="6">
+                            <label for="s_Toma">Toma</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_Cuidador" name="sit_tenencia" value="7">
+                            <label for="s_Cuidador">Cuidador</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_Sucesión" name="sit_tenencia" value="8">
+                            <label for="s_Sucesión">Sucesión</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="si_calle" name="sit_tenencia" value="9">
+                            <label for="si_calle">Situación de Calle</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <p>¿Está Postulando a Subsidio Habitacional?</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_nueva" name="p_subsidio" value="1">
+                            <label for="s_nueva">Sí, Vivienda Nueva o Usada</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_cons" name="p_subsidio" value="2">
+                            <label for="s_cons">Si, Construcción en Sitio Propio</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_mejora" name="p_subsidio" value="3">
+                            <label for="s_mejora">Sí, Mejoramiento de la Vivienda</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_ampliacion" name="p_subsidio" value="4">
+                            <label for="s_ampliacion">Sí, Ampliación de la vivienda</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_entorno" name="p_subsidio" value="5">
+                            <label for="s_entorno">Si, Mejoramiento de Entono</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_arriendo" name="p_subsidio" value="6">
+                            <label for="s_entorno">Si, Subsidio de Arriendo</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_no" name="p_subsidio" value="7">
+                            <label for="s_entorno">No</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <p>¿Tiene Libreta de ahorro para la vivienda?</p>
+
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_libreta" name="libreta" value="1">
+                            <label for="s_libreta">Si</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="n_libreta" name="libreta" value="2">
+                            <label for="n_libreta">No</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <label for="viv_libreta_anio">Señale año de apertura</label>
+                        <input type="text" class="form-control" id="viv_libreta_anio" name="viv_libreta_anio" placeholder="Año de apertura">
+                    </div>
+                    <div class="form-group">
+                        <label for="viv_monto_ahorro">¿Cuál es el monto aproximado que ha ahorrado para su Vivienda?</label>
+                        <input type="text" class="form-control" id="viv_monto_ahorro" name="viv_monto_ahorro" placeholder="$">
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <p>Su familia, ¿es la principal ocupante de la vivienda?</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_ocupante" name="ocupante" value="1">
+                            <label for="s_ocupante">Si</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="n_ocupante" name="ocupante" value="2">
+                            <label for="n_ocupante">No</label>
+                        </div>
+
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <label for="viv_num_personas">Número de personas que habitan la vivienda:</label>
+                        <input type="text" class="form-control" id="viv_num_personas" name="viv_num_personas" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label class="viv_num_dormitorios">Número de piezas que usan como dormitorio</label>
+                        <input type="text" class="form-control" id="viv_num_dormitorios" name="viv_num_dormitorios" placeholder="">
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <p>¿De dónde proviene el agua de la vivienda?</p>
+
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="publica_cm" name="agua" value="1">
+                            <label for="publica_cm">Red Pública Con Medidor</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="publica_sm" name="agua" value="2">
+                            <label for="publica_sm">Red Pública Sin Medidor</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="m_compartido" name="agua" value="3">
+                            <label for="m_compartido">Red Pública con Medidor Compartido</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="noria" name="agua" value="4">
+                            <label for="noria">Agua de Pozo, vertiente o Noria</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_info" name="agua" value="5">
+                            <label for="s_info">Sin Información.</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <p>¿Tiene Subsidio de Agua Potable?</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_sub" name="s_agua" value="1">
+                            <label for="s_sub">Si</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="n_sub" name="s_agua" value="2">
+                            <label for="n_sub">No</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+
+                    <div class="form-group">
+                        <p>¿Cuál es el Sistema de Energía eléctrica de la vivienda?</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="e_publica" name="energia" value="1">
+                            <label for="e_publica">Red pública con medidor propio</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="e_comp" name="energia" value="2">
+                            <label for="e_comp">Red pública con medidor Compartido</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="e_sin_medidor" name="energia" value="3">
+                            <label for="e_sin_medidor">Red Pública sin medidor (conexión irregular)</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="e_solar" name="energia" value="4">
+                            <label for="e_solar">Placa Solar</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="e_generador" name="energia" value="5">
+                            <label for="e_generador">Generador propio</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="e_no" name="energia" value="6">
+                            <label for="e_no">No dispone</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="e_sin_info" name="energia" value="7">
+                            <label for="e_sin_info">Sin información.</label>
+                        </div>
+
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+
+                    <div class="form-group">
+                        <p>¿Cuál es el Sistema de Eliminación de excretas de la vivienda?</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="Alcantarillado" name="excretas" value="1">
+                            <label for="Alcantarillado">Alcantarillado</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="Fosa_Séptica" name="excretas" value="2">
+                            <label for="Fosa_Séptica">Fosa Séptica</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="Letrina" name="excretas" value="3">
+                            <label for="Letrina">Letrina Sanitaria</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="Pozo" name="excretas" value="4">
+                            <label for="Pozo">Pozo Negro</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="no_dispone" name="excretas" value="5">
+                            <label for="no_dispone">No dispone</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="d_sin_info" name="excretas" value="7">
+                            <label for="d_sin_info">Sin información.</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+
+                    <div class="form-group">
+                        <p>¿Se encuentra incorporado en el Registro Social de Hogares?</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_registro" name="registro_hogares" value="1">
+                            <label for="s_registro">Si</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="n_registro" name="registro_hogares" value="2">
+                            <label for="n_registro">No</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="n_info" name="registro_hogares" value="2">
+                            <label for="n_info">No sabe</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <p>¿Cuál es el tramo en el que se encuentra su grupo familiar?</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="t_40" name="e_encuesta" value="1">
+                            <label for="t_40">Tramo del 40 0% – 40%</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="t_50" name="e_encuesta" value="2">
+                            <label for="t_50">Tramo del 50 41% – 50%</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="t_60" name="e_encuesta" value="3">
+                            <label for="t_60">Tramo del 60 51% – 60%</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="t_70" name="e_encuesta" value="4">
+                            <label for="t_70">Tramo del 70 61% – 70%</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="t_80" name="e_encuesta" value="5">
+                            <label for="t_80">Tramo del 80 71% – 80%</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="t_90" name="e_encuesta" value="6">
+                            <label for="t_90">Tramo del 90 81% – 90%</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="t_100" name="e_encuesta" value="7">
+                            <label for="t_100">Tramo del 100 91%-100%</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="t_no_sabe" name="e_encuesta" value="8">
+                            <label for="t_no_sabe">No conoce el tramo</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <p>¿Ha sido beneficiario de alguno de los siguientes Subsidios para la Vivienda?</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="sub_1" name="benef_sub" value="1">
+                            <label for="sub_1">Subsidio Protección al Patrimonio Familiar título I (entorno)</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="sub_2" name="benef_sub" value="2">
+                            <label for="sub_1">Subsidio Protección al Patrimonio Familiar título II (mejoramiento)</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="sub_3" name="benef_sub" value="3">
+                            <label for="sub_3">Subsidio Protección al Patrimonio Familiar título III (ampliación)</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="sub_4" name="benef_sub" value="4">
+                            <label for="sub_4">Nuevo Fondo Solidario de Vivienda</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="sub_5" name="benef_sub" value="5">
+                            <label for="sub_5">Subsidio habitacional sectores emergentes</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="sub_6" name="benef_sub" value="6">
+                            <label for="sub_6">Subsidio habitacional sectores medios</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="sub_7" name="benef_sub" value="7">
+                            <label for="sub_7">Subsidio de Arriendo</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="sub_8" name="benef_sub" value="8">
+                            <label for="sub_8">Movilidad habitacional</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="sub_9" name="benef_sub" value="9">
+                            <label for="sub_9">No</label>
+                        </div>
+                    </div>
+
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <p>Usted o su grupo familiar posee algunos de estos subsidios</p>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="bono_1" name="bonos" value="1">
+                            <label for="bono_1">Subsidio consumo agua potable</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="bono_2" name="bonos" value="2">
+                            <label for="bono_2">Subsidio al empleo joven</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="bono_3" name="bonos" value="3">
+                            <label for="bono_3">Subsidio familiar</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="bono_4" name="bonos" value="4">
+                            <label for="bono_4">Subsidio familiar duplo</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="bono_5" name="bonos" value="5">
+                            <label for="bono_5">Subsidio a la discapacidad mental</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="bono_6" name="bonos" value="6">
+                            <label for="bono_6">Bono trabajo mujer</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="bono_7" name="bonos" value="7">
+                            <label for="bono_7">Bono por hijo</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="bono_8" name="bonos" value="8">
+                            <label for="bono_8">Pensión básica solidaria de vejez</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="bono_9" name="bonos" value="9">
+                            <label for="bono_9">Aporte previsional solidario de vejez</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="bono_10" name="bonos" value="10">
+                            <label for="bono_10">Pensión básica solidaria de invalidez</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="bono_11" name="bonos" value="11">
+                            <label for="bono_11">Aporte previsional solidario de invalidez</label>
+                        </div>
+                    </div>
+                    <div class="form-group pt-5 ">
+                        <input type="button" class="btn btn-warning btn-block text-white"  onclick="guardar_encuesta_vivienda()" value="Guardar y seguir">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carga JQUERY y otros scripts Necesarios-->
+        <script src="../../../../js/jquery-3.3.1.min.js"></script>
+        <!-- Fin Carga Scripts -->
+
+
+        <script type="text/javascript" src="encuestaVivienda.js"></script>
+        <script type="text/javascript">
+                            //borrar_db();
+                            //baseDeDatos();
+                            crearTablas();
+                            llenar_encuesta_vivienda();
+                            //  crear_encuesta();
+
+                            //nueva_encuesta();
+                            //recuperar();
+        </script>
+    </body>
+</html>

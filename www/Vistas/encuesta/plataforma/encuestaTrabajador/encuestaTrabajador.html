@@ -6,15 +6,45 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Encuesta Trabajador</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Carga de Bootstrap e OI Icons -->
         <link href="../../../../css/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="../../../../font/open-iconic-bootstrap.css" rel="stylesheet">
         <!-- Fin Carga de Bootstrap -->
+        
+        <script type="text/javascript" src="encuestaTrabajador.js"></script>
+        <script type="text/javascript">
+                                //borrar_db();
+                                //baseDeDatos();	
+                                crearTablas();
+                                llenar_encuesta_trabajador();
+                                //  crear_encuesta();
+
+                                //nueva_encuesta();
+                                //recuperar();
+        </script>
+        
+        
+        
     </head>
     <body>
+
+        <ul class="nav nav-pills nav-fill ">
+            <li class="nav-item">
+                <a class="nav-link " href="../../../inicio/inicio.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="gotoplataforma" href="#">Plataforma</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link bg-danger active" href="#">Encuesta Trabajador</a>
+            </li>
+        </ul>
+
+
+
         <div class="container pt-3 pb-3">
 
             <div id="status" ></div>
@@ -24,210 +54,211 @@ and open the template in the editor.
                     <h3 class="card-title">Encuesta Trabajador</h3>
                 </div>
                 <div class="card-body">
-                    <div class="form-group">
-                        <label for="trab_dir_calle">Dirección/Calle</label>
-                        <input type="text" class="form-control" id="trab_dir_calle" name="trab_dir_calle" placeholder="Dirección/calle">
-                    </div>
-                    <div class="form-group">
-                        <label for="trab_dir_numero">Número/block/depto</label>
-                        <input type="text" class="form-control" id="trab_dir_numero" name="trab_dir_numero" placeholder="Número/block/dpto">
-                    </div>
-                    <div class="form-group">
-                        <label for="trab_dir_sector">Población/ Sector</label>
-                        <input type="text" class="form-control" id="trab_dir_sector" name="trab_dir_sector" placeholder="Población/Sector">
-                    </div>
-                    <div class="form-group">
-                        <label for="trab_tel_fijo">Teléfono Fijo</label>
-                        <input type="text" class="form-control" id="trab_tel_fijo" name="trab_tel_fijo" placeholder="Teléfono Fijo">
-                    </div>
-                    <div class="form-group">
-                        <label for="trab_tel_movil">Celular</label>
-                        <input type="text" class="form-control" id="trab_tel_movil" name="trab_tel_movil" placeholder="Celular">
-                    </div>
-                    <div class="form-group">
-                        <label for="trab_fec_nacimiento">Fecha de nacimiento</label>
-                        <input type="text" class="form-control" id="trab_fec_nacimiento" name="trab_fec_nacimiento" placeholder="Fecha de nacimiento">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="trab_fec_nacimiento">Fecha de nacimiento</label>
-                        <input type="text" class="form-control" id="trab_fec_nacimiento" name="trab_fec_nacimiento" placeholder="Fecha de nacimiento">
-                    </div>
-
-                    <div class="dropdown-divider"></div>
-
-
-                    <label>Genero </label>
-                    <div class="form-check">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="genero" id="M" value="1">
-                            <label class="form-check-label" for="M">Masculino </label>
+                    <form>
+                        <div class="form-group">
+                            <label for="trab_dir_calle">Dirección/Calle</label>
+                            <input type="text" class="form-control" id="trab_dir_calle" name="trab_dir_calle" placeholder="Dirección/calle">
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="genero" id="F" value="2">
-                            <label class="form-check-label" for="F">Femenino</label>
+                        <div class="form-group">
+                            <label for="trab_dir_numero">Número/block/depto</label>
+                            <input type="text" class="form-control" id="trab_dir_numero" name="trab_dir_numero" placeholder="Número/block/dpto">
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="trab_dir_sector">Población/ Sector</label>
+                            <input type="text" class="form-control" id="trab_dir_sector" name="trab_dir_sector" placeholder="Población/Sector">
+                        </div>
+                        <div class="form-group">
+                            <label for="trab_tel_fijo">Teléfono Fijo</label>
+                            <input type="text" class="form-control" id="trab_tel_fijo" name="trab_tel_fijo" placeholder="Teléfono Fijo">
+                        </div>
+                        <div class="form-group">
+                            <label for="trab_tel_movil">Celular</label>
+                            <input type="text" class="form-control" id="trab_tel_movil" name="trab_tel_movil" placeholder="Celular">
+                        </div>
+                        <div class="form-group">
+                            <label for="trab_fec_nacimiento">Fecha de nacimiento</label>
+                            <input type="text" class="form-control" id="trab_fec_nacimiento" name="trab_fec_nacimiento" placeholder="Fecha de nacimiento">
+                        </div>
 
-                    <div class="dropdown-divider"></div>
+                        <div class="form-group">
+                            <label for="trab_fec_nacimiento">Fecha de nacimiento</label>
+                            <input type="text" class="form-control" id="trab_fec_nacimiento" name="trab_fec_nacimiento" placeholder="Fecha de nacimiento">
+                        </div>
 
-                    <label for="jefe">Jefe de Familia</label>
-                    <div class="form-check">
+                        <div class="dropdown-divider"></div>
 
-                        <input class="form-check-input" type="radio" name="jefe" id="si_jefe" value="1">
-                        <label class="form-check-label" for="si_jefe">
-                            Si
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="jefe" id="no_jefe" value="2">
-                        <label class="form-check-label" for="no_jefe">
-                            No
-                        </label>
-                    </div>
 
-                    <div class="dropdown-divider"></div>
-
-                    <label for="indigena">¿Usted o sus Ascendientes tiene origen Indígena? </label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="indigena" id="no_tiene" value="1">
-                        <label class="form-check-label" for="no_tiene">
-                            No
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="indigena" id="si_yo" value="2">
-                        <label class="form-check-label" for="si_yo">
-                            Si, yo
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="indigena" id="si_padres" value="3">
-                        <label class="form-check-label" for="si_padres">
-                            Si, uno de mis padres
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="indigena" id="si_abu" value="4">
-                        <label class="form-check-label" for="si_abu">
-                            Si, uno de mis abuelos
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="indigena" id="si_bisabu" value="5">
-                        <label class="form-check-label" for="si_bisabu">
-                            Si, uno de mis bisabuelos
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="indigena" id="no_se" value="6">
-                        <label class="form-check-label" for="no_se">
-                            No se
-                        </label>
-                    </div>
-
-                    <div class="dropdown-divider"></div>
-
-                    <p>¿Cuál es Su estado Civil o Conyugal Actual?</p>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" id="soltero" name="e_civil" value="1">
-                        <label class="form-check-label" for="soltero">
-                            Soltero
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" id="viudo" name="e_civil" value="2">
-                        <label class="form-check-label" for="viudo">
-                            Viudo
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" id="casado" name="e_civil" value="3">
-                        <label class="form-check-label" for="casado">
-                            Casado
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" id="conviviente" name="e_civil" value="4">
-                        <label class="form-check-label" for="conviviente">
-                            Conviviente
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" id="divorciado" name="e_civil" value="5">
-                        <label class="form-check-label" for="divorciado">
-                            Divorciado
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" id="conviviente_civil" name="e_civil" value="6">
-                        <label class="form-check-label" for="conviviente_civil">
-                            Conviviente civil
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" id="separado_h" name="e_civil" value="7">
-                        <label class="form-check-label" for="separado_h">
-                            Separado de hecho
-                        </label>
-                    </div>
-
-                    <div class="dropdown-divider"></div>
-
-                    <p>¿Su Nacionalidad es Chilena?</p>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" id="chileno" name="nacionalidad" value="1">
-                        <label class="form-check-label" for="chileno">
-                            Si
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" id="no_chileno" name="nacionalidad" value="2">
-                        <label class="form-check-label" for="no_chileno">
-                            No
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" id="con_cedula" name="nacionalidad" value="3">
-                        <label class="form-check-label" for="con_cedula">
-                            Tiene Cédula de Identidad Chilena
-                        </label>
-                    </div>
-
-                    <div class="dropdown-divider"></div>
-
-                    <div class="form-group">
-                        <p>Previsión Salud</p>
+                        <label>Genero </label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" id="fonasa" name="p_salud" value="1">
-                            <label class="form-check-label" for="fonasa">
-                                Fonasa
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="genero" id="M" value="1">
+                                <label class="form-check-label" for="M">Masculino </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="genero" id="F" value="2">
+                                <label class="form-check-label" for="F">Femenino</label>
+                            </div>
+                        </div>
+
+                        <div class="dropdown-divider"></div>
+
+                        <label for="jefe">Jefe de Familia</label>
+                        <div class="form-check">
+
+                            <input class="form-check-input" type="radio" name="jefe" id="si_jefe" value="1">
+                            <label class="form-check-label" for="si_jefe">
+                                Si
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" id="isapre" name="p_salud" value="2">
-                            <label class="form-check-label" for="isapre">
-                                Isapre
+                            <input class="form-check-input" type="radio" name="jefe" id="no_jefe" value="2">
+                            <label class="form-check-label" for="no_jefe">
+                                No
                             </label>
                         </div>
-                    </div>
 
-                    <div class="dropdown-divider"></div>
+                        <div class="dropdown-divider"></div>
 
-                    <div class="form-group">
-                        <label for="trab_prev_salud_d">Tramo/Nombre</label>
-                        <input type="text" class="form-control" id="trab_prev_salud_d" name="trab_prev_salud_d" placeholder="A/Banmédica">
-                    </div>
-                    <div class="form-group">
-                        <label for="trab_prev_social">Previsión Social</label>
-                        <input type="text" class="form-control" id="trab_prev_social" name="trab_prev_social" placeholder="Previsión Social">
-                    </div>
+                        <label for="indigena">¿Usted o sus Ascendientes tiene origen Indígena? </label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="indigena" id="no_tiene" value="1">
+                            <label class="form-check-label" for="no_tiene">
+                                No
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="indigena" id="si_yo" value="2">
+                            <label class="form-check-label" for="si_yo">
+                                Si, yo
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="indigena" id="si_padres" value="3">
+                            <label class="form-check-label" for="si_padres">
+                                Si, uno de mis padres
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="indigena" id="si_abu" value="4">
+                            <label class="form-check-label" for="si_abu">
+                                Si, uno de mis abuelos
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="indigena" id="si_bisabu" value="5">
+                            <label class="form-check-label" for="si_bisabu">
+                                Si, uno de mis bisabuelos
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="indigena" id="no_se" value="6">
+                            <label class="form-check-label" for="no_se">
+                                No se
+                            </label>
+                        </div>
 
-                    <div class="form-row pt-5 ">
-                        <input type="button" class="btn btn-danger btn-block" onclick="guardar_encuesta_trabajador()" value="Guardar y seguir"> 
-                    </div>
+                        <div class="dropdown-divider"></div>
 
+                        <p>¿Cuál es Su estado Civil o Conyugal Actual?</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="soltero" name="e_civil" value="1">
+                            <label class="form-check-label" for="soltero">
+                                Soltero
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="viudo" name="e_civil" value="2">
+                            <label class="form-check-label" for="viudo">
+                                Viudo
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="casado" name="e_civil" value="3">
+                            <label class="form-check-label" for="casado">
+                                Casado
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="conviviente" name="e_civil" value="4">
+                            <label class="form-check-label" for="conviviente">
+                                Conviviente
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="divorciado" name="e_civil" value="5">
+                            <label class="form-check-label" for="divorciado">
+                                Divorciado
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="conviviente_civil" name="e_civil" value="6">
+                            <label class="form-check-label" for="conviviente_civil">
+                                Conviviente civil
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="separado_h" name="e_civil" value="7">
+                            <label class="form-check-label" for="separado_h">
+                                Separado de hecho
+                            </label>
+                        </div>
 
+                        <div class="dropdown-divider"></div>
+
+                        <p>¿Su Nacionalidad es Chilena?</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="chileno" name="nacionalidad" value="1">
+                            <label class="form-check-label" for="chileno">
+                                Si
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="no_chileno" name="nacionalidad" value="2">
+                            <label class="form-check-label" for="no_chileno">
+                                No
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="con_cedula" name="nacionalidad" value="3">
+                            <label class="form-check-label" for="con_cedula">
+                                Tiene Cédula de Identidad Chilena
+                            </label>
+                        </div>
+
+                        <div class="dropdown-divider"></div>
+
+                        <div class="form-group">
+                            <p>Previsión Salud</p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="fonasa" name="p_salud" value="1">
+                                <label class="form-check-label" for="fonasa">
+                                    Fonasa
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="isapre" name="p_salud" value="2">
+                                <label class="form-check-label" for="isapre">
+                                    Isapre
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="dropdown-divider"></div>
+
+                        <div class="form-group">
+                            <label for="trab_prev_salud_d">Tramo/Nombre</label>
+                            <input type="text" class="form-control" id="trab_prev_salud_d" name="trab_prev_salud_d" placeholder="A/Banmédica">
+                        </div>
+                        <div class="form-group">
+                            <label for="trab_prev_social">Previsión Social</label>
+                            <input type="text" class="form-control" id="trab_prev_social" name="trab_prev_social" placeholder="Previsión Social">
+                        </div>
+
+                        <div class="form-row pt-5 ">
+                            <input type="button" class="btn btn-danger btn-block" onclick="guardar_encuesta_trabajador()" value="Guardar y seguir"> 
+                        </div>
+
+                    </form>
                 </div>
             </div>
 
@@ -238,16 +269,7 @@ and open the template in the editor.
         <!-- Fin Carga Scripts -->
 
 
-        <script type="text/javascript" src="encuestaTrabajador.js"></script>
-        <script type="text/javascript">
-                            //borrar_db();
-                            //baseDeDatos();	
-                            crearTablas();
-                            //  crear_encuesta();
-
-                            //nueva_encuesta();
-                            //recuperar();
-        </script>
+        
 
     </body>
 </html>

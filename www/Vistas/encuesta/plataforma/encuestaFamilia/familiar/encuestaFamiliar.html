@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Datos del Familiar</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Carga de Bootstrap e OI Icons -->
+        <link href="../../../../../css/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="../../../../../font/open-iconic-bootstrap.css" rel="stylesheet">
+        <!-- Fin Carga de Bootstrap -->
+
+        <!-- Rompe sesion -->
+        <script src="../../../../../js/broker.js"></script>
+        <!-- Fin rompe sesion-->
+
+    </head>
+    <body>
+        
+        <ul class="nav nav-pills nav-fill ">
+            <li class="nav-item">
+                <a class="nav-link " href="../../../inicio/inicio.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="gotoplataforma" href="#">Plataforma</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link bg-secondary active" href="#">Datos Familiar</a>
+            </li>
+        </ul>
+        
+        
+        <div class="container pt-3 pb-3">
+
+            <div id="aviso" ></div>
+
+            <div class="card border-secondary">
+                <div class="card-header bg-secondary text-white">
+                    <h3 class="card-title">Datos de Familiar</h3>
+                </div>
+                <div class="card-body">
+                    <h3>Datos de Familiar</h3>
+                    <div class="form-group">
+                        <p>¿Es jefe(a) de familia?</p>
+
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_fam_jefe_familia" name="fam_jefe_familia" value="1">
+                            <label for="s_fam_jefe_familia">Si</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="n_fam_jefe_familia" name="fam_jefe_familia" value="2">
+                            <label for="n_fam_jefe_familia">No</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <p>¿Es carga familiar del trabajador?</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_carga" name="fam_es_carga" value="1">
+                            <label for="s_carga">Si</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="n_carga" name="fam_es_carga" value="2">
+                            <label for="n_carga">No</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <p>¿Cuál es el Parentesco con el Trabajador?</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_1" name="fam_parentezco" value="1">
+                            <label for="fam_1">Hijo(a) sólo del trabajador</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_2" name="fam_parentezco" value="2">
+                            <label for="fam_2">Hijo(a) sólo del cónyuge.</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_3" name="fam_parentezco" value="3">
+                            <label for="fam_3">Cónyuge</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_4" name="fam_parentezco" value="4">
+                            <label for="fam_4">Conviviente</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_5" name="fam_parentezco" value="5">
+                            <label for="fam_5">Hijo(a)</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_6" name="fam_parentezco" value="6">
+                            <label for="fam_6">Padre</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_7" name="fam_parentezco" value="7">
+                            <label for="fam_7">Madre</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_8" name="fam_parentezco" value="8">
+                            <label for="fam_8">Suegro(a)</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_9" name="fam_parentezco" value="9">
+                            <label for="fam_9">Yerno</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_10" name="fam_parentezco" value="10">
+                            <label for="fam_10">Nieto(a)</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_11" name="fam_parentezco" value="11">
+                            <label for="fam_11">Hermano(a)</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_12" name="fam_parentezco" value="12">
+                            <label for="fam_12">Cuñado(a)</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_13" name="fam_parentezco" value="13">
+                            <label for="fam_13">Nuera</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_14" name="fam_parentezco" value="14">
+                            <label for="fam_14">Sobrino(a)</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_15" name="fam_parentezco" value="15">
+                            <label for="fam_15">Otro Familiar</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_16" name="fam_parentezco" value="16">
+                            <label for="fam_16">No Familiar</label>
+                        </div>
+                    </div>
+
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <p>¿Usted o sus Ascendientes tiene origen Indígena?</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_no_tiene" name="fam_ant_indigena" value="1">
+                            <label for="fam_no_tiene">No</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_si_yo" name="fam_ant_indigena" value="2">
+                            <label for="fam_si_yo">Si, yo</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_si_padres" name="fam_ant_indigena" value="3">
+                            <label for="fam_si_padres">Si,Uno de mis padres</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_si_abu" name="fam_ant_indigena" value="4">
+                            <label for="fam_si_abu">Sí, Uno de mis abuelos.</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_si_bisabu" name="fam_ant_indigena" value="5">
+                            <label for="fam_si_bisabu">Sí, Uno de mis bisabuelos</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_no_se" name="fam_ant_indigena" value="6">
+                            <label for="fam_no_se">No se</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <p>¿Su madre o padre trabaja en algún establecimiento educacional establecimientos municipales, particular subvencionados o de administración delegada</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_fam" name="fam_padre_profesor" value="1">
+                            <label for="s_fam">Si</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="n_fam" name="fam_padre_profesor" value="2">
+                            <label for="n_fam">No</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <p>¿Posee usted alguna de estas condiciones en forma permanente?</p>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="fam_Ceguera" name="fam_cond_perm" value="1">
+                            <label for="fam_Ceguera">Ceguera</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="fam_Dificultad_visual" name="fam_cond_perm" value="2">
+                            <label for="fam_Dificultad_visual">Dificultad visual</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="fam_Mudez" name="fam_cond_perm" value="3">
+                            <label for="fam_Mudez">Mudez</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="fam_Sordera" name="fam_cond_perm" value="4">
+                            <label for="fam_Sordera">Sordera</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="fam_Dificultad_auditiva" name="fam_cond_perm" value="5">
+                            <label for="fam_Dificultad_auditiva">Dificultad auditiva</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="fam_Dificultad_habla" name="fam_cond_perm" value="6">
+                            <label for="fam_Dificultad_habla">Dificultad en el habla</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="fam_Enfermedades_siquiátricas" name="fam_cond_perm" value="7">
+                            <label for="fam_Enfermedades_siquiátricas">Enfermedades siquiátricas</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="fam_Dificultad_física" name="fam_cond_perm" value="8">
+                            <label for="fam_Dificultad_física">Dificultad física ( requiere ayuda para su desplazamiento)</label> 
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="fam_No_tiene" name="fam_cond_perm" value="9">
+                            <label for="fam_No_tiene">No tiene</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+
+                    <div class="form-group">
+                        <p>¿Usted posee alguna patología GES? Orientar con anexo</p>
+
+                        <label for="fam_ges">Señálela (s): </label>
+                        <input type="text" class="form-control" id="fam_ges" name="fam_ges" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <p>¿Hace uso de las de las garantías de atención que ofrece su sistema previsional de salud FONASA o ISAPRE ?</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_s_prev" name="fam_usa_prevsalud" value="1">
+                            <label for="fam_s_prev">Si</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_n_prev" name="fam_usa_prevsalud" value="2">
+                            <label for="fam_n_prev">No</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_ns_prev" name="fam_usa_prevsalud" value="3">
+                            <label for="fam_ns_prev">No sabe</label>
+                        </div>
+                    </div>
+
+
+                    <div class="dropdown-divider"></div>
+
+
+                    <div class="form-group">
+                        <p>Si es mayor de 18 años: Actualmente, ¿está trabajando?</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_fam_t" name="fam_trabajando" value="1">
+                            <label for="s_fam_t">Si</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="n_fam_t" name="fam_trabajando" value="2">
+                            <label for="n_fam_t">No</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <p>Si está trabajando, ¿Cuál es su relación Contractual?</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="contrato_1" name="fam_sit_contrato" value="1">
+                            <label for="contrato_1">Contrato Indefinido</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="contrato_2" name="fam_sit_contrato" value="2">
+                            <label for="contrato_2">Contrato a Plazo Fijo</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="contrato_3" name="fam_sit_contrato" value="3">
+                            <label for="contrato_3">Contrato por obra o faena</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="contrato_4" name="fam_sit_contrato" value="4">
+                            <label for="contrato_4">Contrato de aprendizaje</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="contrato_5" name="fam_sit_contrato" value="5">
+                            <label for="contrato_5">Prestación de servicios a honorarios</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="contrato_6" name="fam_sit_contrato" value="6">
+                            <label for="contrato_6">Sin Contrato</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="contrato_7" name="fam_sit_contrato" value="7">
+                            <label for="contrato_7">Trabajo Independiente</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="contrato_8" name="fam_sit_contrato" value="8">
+                            <label for="contrato_8">Sin información</label> 
+                        </div>
+                    </div> 
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <p>Si NO está trabajando, ¿cuál es su situación actual?</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="sit_1" name="fam_sit_nolaboral" value="1">
+                            <label for="sit_1">Dueña de Casa</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="sit_2" name="fam_sit_nolaboral" value="2">
+                            <label for="sit_2">Estudiante</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="sit_3" name="fam_sit_nolaboral" value="3">
+                            <label for="sit_3">Jubilado o Pensionado</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="sit_4" name="fam_sit_nolaboral" value="4">
+                            <label for="sit_4">Cesante</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="sit_5" name="fam_sit_nolaboral" value="5">
+                            <label for="sit_5">Otro</label>
+                        </div>
+                    </div> 
+
+                    <div class="dropdown-divider"></div>
+                    <!-- Wtf? -->
+                    <div class="form-group">
+                        <p>Si es Dueña de Casa</p>
+                        <div class="form-group">
+                            <p>¿Realiza alguna actividad económica de manera independiente?</p>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="dueña_1" name="fam_det_pension" value="1">
+                                <label for="dueña_1">Si</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="dueña_2" name="fam_det_pension" value="2">
+                                <label for="dueña_2">No</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <p>Pensión Básica Solidaria de Vejez</p>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="dueña_3" name="fam_det_pension" value="3">
+                                <label for="dueña_3">Si</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="dueña_4" name="fam_det_pension" value="4">
+                                <label for="dueña_4">No</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <p>Pensión Básica Solidaria de Invalidez</p>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="dueña_5" name="fam_det_pension" value="5">
+                                <label for="dueña_5">Si</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="dueña_6" name="fam_det_pension" value="6">
+                                <label for="dueña_6">No</label>
+                            </div>
+                        </div>
+                        <div class="form-check">
+                            <p>Pensión con aporte previsional solidario de Vejez</p>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="dueña_7" name="fam_det_pension" value="7">
+                                <label for="dueña_7">Si</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="dueña_8" name="fam_det_pension" value="8">
+                                <label for="dueña_8">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p>Si es Jubilado o Pensionado</p>
+                        <div class="form-check">
+                            <p>Pensión con aporte previsional solidario de Invalidez</p>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="jubilado_1" name="fam_det_pension" value="9">
+                                <label for="jubilado_1">Si</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="jubilado_2" name="fam_det_pension" value="10">
+                                <label for="jubilado_2">No</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <p>Pensión de Vejez</p>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="jubilado_3" name="fam_det_pension" value="11">
+                                <label for="jubilado_3">Si</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="jubilado_4" name="fam_det_pension" value="12">
+                                <label for="jubilado_4">No</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <p>Pensión de Invalidez Renta Vitalicia</p>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="jubilado_5" name="fam_det_pension" value="13">
+                                <label for="jubilado_5">Si</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="jubilado_6" name="fam_det_pension" value="14">
+                                <label for="jubilado_6">No</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <p>Pensión de Gracia</p>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="jubilado_7" name="fam_det_pension" value="15">
+                                <label for="jubilado_7">Si</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="jubilado_8" name="fam_det_pension" value="16">
+                                <label for="jubilado_8">No</label>
+                            </div>
+                        </div>
+                        <div class="form-check">
+                            <p>Pensión de Orfandad</p>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="jubilado_9" name="fam_det_pension" value="17">
+                                <label for="jubilado_9">Si</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="jubilado_10" name="fam_det_pension" value="18">
+                                <label for="jubilado_10">No</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <p>Pensión de Viudez</p>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="jubilado_11" name="fam_det_pension" value="19">
+                                <label for="jubilado_11">Si</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="jubilado_12" name="fam_det_pension" value="20">
+                                <label for="jubilado_12">No</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <p>Subsidio a la Discapacidad Mental</p>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="jubilado_13" name="fam_det_pension" value="21">
+                                <label for="jubilado_13">Si</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="jubilado_14" name="fam_det_pension" value="22">
+                                <label for="jubilado_14">No</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <p>PRAIS</p>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="jubilado_15" name="fam_det_pension" value="23">
+                                <label for="jubilado_15">Si</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="jubilado_16" name="fam_det_pension" value="24">
+                                <label for="jubilado_16">No</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <p>Otras</p>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="jubilado_17" name="fam_det_pension" value="25">
+                                <label for="jubilado_17">Si</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="jubilado_18" name="fam_det_pension" value="26">
+                                <label for="jubilado_18">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p>Si es Cesante</p>
+                        <div class="form-group">
+                            <p>Está Inscrito en la OMIL ( Oficina de intermediación laboral del Municipio)</p>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="cesante_1" name="fam_det_pension" value="27">
+                                <label for="cesante_1">Si</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="cesante_2" name="fam_det_pension" value="28">
+                                <label for="cesante_2">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fin wtf? -->
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <label for="fam_meses_cesante">Tiempo cesante en meses</label>
+                        <input type="text" class="form-control" id="fam_meses_cesante" name="fam_meses_cesante" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <p>Tiene Iniciación de Actividades en el SII</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_inicio" name="fam_inicio_activ" value="1">
+                            <label for="s_inicio">Si</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="n_inicio" name="fam_inicio_activ" value="2">
+                            <label for="n_inicio">No</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <p>¿Asiste actualmente o está matriculado en algún establecimiento educacional o pre escolar?</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_matri" name="fam_matriculado" value="1">
+                            <label for="s_matri">Si</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="n_matri" name="fam_matriculado" value="2">
+                            <label for="n_matri">No</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <p>NivelEducacional Actual</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_educacion_1" name="fam_nivel_educ" value="1">
+                            <label for="fam_educacion_1">Educación Parvularia</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_educacion_2" name="fam_nivel_educ" value="2">
+                            <label for="fam_educacion_2">Educación Básica</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_educacion_3" name="fam_nivel_educ" value="3">
+                            <label for="fam_educacion_3">Enseñanza Media (Científico Humanista)</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_educacion_4" name="fam_nivel_educ" value="4">
+                            <label for="fam_educacion_4">Enseñanza Media Técnico Profesional</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_educacion_5" name="fam_nivel_educ" value="5">
+                            <label for="fam_educacion_5">Educación Especial - Diferencial</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_educacion_6" name="fam_nivel_educ" value="6">
+                            <label for="fam_educacion_6">Centro de Formación Técnica</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_educacion_7" name="fam_nivel_educ" value="7">
+                            <label for="fam_educacion_7">Instituto Profesional</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_educacion_8" name="fam_nivel_educ" value="8">
+                            <label for="fam_educacion_8">Universitaria</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_educacion_9" name="fam_nivel_educ" value="9">
+                            <label for="fam_educacion_9">Post Grado</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_educacion_10" name="fam_nivel_educ" value="10">
+                            <label for="fam_educacion_10">Especialidades Fuerzas Armadas</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+
+                    <div class="form-group">
+                        <p>Tipo de Establecimiento</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_Público" name="fam_tipo_est" value="1">
+                            <label for="fam_Público">Público</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_Particular" name="fam_tipo_est" value="2">
+                            <label for="fam_Particular">Particular</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_Subvencionado" name="fam_tipo_est" value="3">
+                            <label for="fam_Subvencionado">Subvencionado</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_e_adultos" name="fam_tipo_est" value="4">
+                            <label for="fam_e_adultos">Educación de Adultos</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+
+                    <div class="form-group">
+                        <p>Último Curso aprobado</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_curso_1" name="fam_ult_curso" value="1">
+                            <label for="fam_curso_1">1</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_curso_2" name="fam_ult_curso" value="2">
+                            <label for="fam_curso_2">2</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_curso_3" name="fam_ult_curso" value="3">
+                            <label for="fam_curso_3">3</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_curso_4" name="fam_ult_curso" value="4">
+                            <label for="fam_curso_4">4</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_curso_5" name="fam_ult_curso" value="5">
+                            <label for="fam_curso_5">5</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_curso_6" name="fam_ult_curso" value="6">
+                            <label for="fam_curso_6">6</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_curso_7" name="fam_ult_curso" value="7">
+                            <label for="fam_curso_7">7</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <label for="fam_fin_estudios">¿El último año calendario que estudió fue?</label>
+                        <input type="text" class="form-control" id="fam_fin_estudios" name="fam_fin_estudios" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fam_rindio_psu">¿Rindió la PSU?</label>
+                        <input type="text" class="form-control" id="fam_rindio_psu" name="fam_rindio_psu" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="fam_anio_psu">¿En qué año?</label>
+                        <input type="text" class="form-control" id="fam_anio_psu" name="fam_anio_psu" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="fam_puntaje_psu">¿Qué puntaje obtuvo?</label>
+                        <input type="text" class="form-control" id="fam_puntaje_psu" name="fam_puntaje_psu" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="fam_ult_promedio">¿Su Promedio Notas último año cursado fue?</label>
+                        <input type="text" class="form-control" id="fam_ult_promedio" name="fam_ult_promedio" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <p>¿Si actualmente está estudiando Educación Superior cómo Financia su carrera?</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_fin_1" name="fam_fin_educsup" value="1">
+                            <label for="fam_fin_1">Becas</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_fin_2" name="fam_fin_educsup" value="2">
+                            <label for="fam_fin_2">Fondo Solidario</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_fin_3" name="fam_fin_educsup" value="3">
+                            <label for="fam_fin_3">Crédito con Aval del Estado CAE</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_fin_4" name="fam_fin_educsup" value="4">
+                            <label for="fam_fin_4">Recursos Propios</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_fin_5" name="fam_fin_educsup" value="5">
+                            <label for="fam_fin_5">Gratuidad en la Educación</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fam_fin_6" name="fam_fin_educsup" value="6">
+                            <label for="fam_fin_6">Otros</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-inline">
+                        <p>Detalle su Ingreso Bruto en los últimos 3 Meses (Mes 3= Ingreso mes anterior a la encuesta)</p>
+                        <div class="form-group">
+                            <label for="fam_ibruto_mes1">Mes 3= $ </label>
+                            <input type="text" class="form-control" id="fam_ibruto_mes1" name="fam_ibruto_mes1" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label>Mes 2= $ </label>
+                            <input type="text" class="form-control" id="fam_ibruto_mes2" name="fam_ibruto_mes2" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label>Mes 1= $ </label>
+                            <input type="text" class="form-control" id="fam_ibruto_mes3" name="fam_ibruto_mes3" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-inline">
+                        <p>Detalle su Ingreso Líquido ( se refiere a ingreso bruto menos los descuentos legales)en los últimos 3 Meses (Mes 3= Ingreso mes anterior a la encuesta)</p>
+                        <div class="form-group">
+                            <label>Mes 3= $ </label>
+                            <input type="text" class="form-control" id="fam_iliquido_mes1" name="fam_iliquido_mes1" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label>Mes 2= $ </label>
+                            <input type="text" class="form-control" id="fam_iliquido_mes2" name="fam_iliquido_mes2" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label>Mes 1= $ </label>
+                            <input type="text" class="form-control" id="fam_iliquido_mes3" name="fam_iliquido_mes3" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <p>Recibe usted Pensiones o Jubilaciones:</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_pen" name="fam_rec_pension" value="1">
+                            <label for="s_pen">Si</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="n_pen" name="fam_rec_pension" value="2">
+                            <label for="n_pen">No</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-inline">
+                        <p>Si la respuesta es Si ¿A cuánto Ascienden por mes?</p>
+                        <div class="form-group">
+                            <label>Mes 3= $ </label>
+                            <input type="text" class="form-control" id="fam_pension_mes1" name="fam_pension_mes1" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label>Mes 2= $ </label>
+                            <input type="text" class="form-control" id="fam_pension_mes2" name="fam_pension_mes2" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label>Mes 1= $ </label>
+                            <input type="text" class="form-control" id="fam_pension_mes3" name="fam_pension_mes3" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+
+                    <div class="form-group">
+                        <p>¿Tiene algún otro Ingreso económico Por concepto de SUF, Pensión de alimentos, o por trabajo independiente?</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_pen_otros" name="fam_rec_otros" value="1">
+                            <label for="s_pen_otros">Si</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="n_pen_otros" name="fam_rec_otros" value="2">
+                            <label for="n_pen_otros">No</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-inline">
+                        <p>Si la respuesta es Si ¿A cuánto Ascienden por mes?</p>
+                        <div class="form-group">
+                            <label>Mes 3= $ </label>
+                            <input type="text" class="form-control" id="fam_otros_mes1" name="fam_otros_mes1" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label>Mes 2= $ </label>
+                            <input type="text" class="form-control" id="fam_otros_mes2" name="fam_otros_mes2" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label>Mes 1= $ </label>
+                            <input type="text" class="form-control" id="fam_otros_mes3" name="fam_otros_mes3" placeholder="">
+                        </div>
+
+                    </div>
+                    <div class="form-group pt-5 ">
+                        <input type="button" class="btn btn-secondary btn-block" onclick="guardar_familia_datos()" value="Guardar ">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Carga JQUERY y otros scripts Necesarios-->
+        <script src="../../../../../js/jquery-3.3.1.min.js"></script>
+        <!-- Fin Carga Scripts -->
+
+
+        <script type="text/javascript" src="encuestaFamiliar.js"></script>
+        <script type="text/javascript">
+                            //borrar_db();
+                            //baseDeDatos();	
+                            crearTablas();
+                            llenar_familia_datos();
+                            //  crear_encuesta();
+
+                            //nueva_encuesta();
+                            //recuperar();
+        </script>
+    </body>
+</html>

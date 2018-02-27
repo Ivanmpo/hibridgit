@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Encuesta Educación</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Carga de Bootstrap e OI Icons -->
+        <link href="../../../../css/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="../../../../font/open-iconic-bootstrap.css" rel="stylesheet">
+        <!-- Fin Carga de Bootstrap -->
+
+        <script type="text/javascript" src="encuestaEducacion.js"></script>
+        <script type="text/javascript">
+                                //borrar_db();
+                                //baseDeDatos();
+                                crearTablas();
+                                llenar_encuesta_educacion();
+                                //  crear_encuesta();
+
+                                //nueva_encuesta();
+                                //recuperar();
+        </script>
+    </head>
+    <body>
+        <ul class="nav nav-pills nav-fill ">
+            <li class="nav-item">
+                <a class="nav-link " href="../../../inicio/inicio.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../plataforma.html">Plataforma</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link bg-primary active" href="#">Encuesta Educación</a>
+            </li>
+        </ul>
+        
+        
+        
+        
+        <div class="container pt-3 pb-3">
+
+            <div id="aviso" ></div>
+
+            <div class="card border-primary">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title">Encuesta Educacion</h3>
+                </div>
+                <div class="card-body ">
+
+                    <h3>Encuesta Educacion</h3>
+                    <div class="form-group ">
+                        <p>¿Cuál es su nivel de Escolaridad?</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="educacion_1" name="educacion" value="1">
+                            <label for="educacion_1">Analfabeto</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="educacion_2" name="educacion" value="2">
+                            <label for="educacion_2">Alfabetismo informal</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="educacion_3" name="educacion" value="3">
+                            <label for="educacion_3">Básica Incompleta</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="educacion_4" name="educacion" value="4">
+                            <label for="educacion_4">Básica Completa</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="educacion_5" name="educacion" value="5">
+                            <label for="educacion_5">Media Incompleta (Científico Humanista)</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="educacion_6" name="educacion" value="6">
+                            <label for="educacion_6">Media Completa (Científico Humanista)</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="educacion_7" name="educacion" value="7">
+                            <label for="educacion_7">Liceo Técnico Incompleto</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="educacion_8" name="educacion" value="8">
+                            <label for="educacion_8">Liceo Técnico Completo</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="educacion_9" name="educacion" value="9">
+                            <label for="educacion_9">Centro de Formación Técnica incompleto</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="educacion_10" name="educacion" value="10">
+                            <label for="educacion_10">Centro de Formación Técnica Completo</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="educacion_11" name="educacion" value="11">
+                            <label for="educacion_11">Instituto Profesional Incompleto</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="educacion_12" name="educacion" value="12">
+                            <label for="educacion_12">Instituto Profesional Completo</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="educacion_13" name="educacion" value="13">
+                            <label for="educacion_13">Universidad Incompleta</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="educacion_14" name="educacion" value="14">
+                            <label for="educacion_14">Universidad Completa</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="educacion_15" name="educacion" value="15">
+                            <label for="educacion_15">Post Grado Incompleto</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="educacion_16" name="educacion" value="16">
+                            <label for="educacion_16">Post Grado Completo</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="educacion_17" name="educacion" value="17">
+                            <label for="educacion_17">Especialidades Fuerzas Armadas</label>
+                        </div>
+
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+                    <div class="form-group">
+                        <p>Tipo de Establecimiento</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="Público" name="edu_tipo_est" value="1">
+                            <label for="Público">Público</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="Particular" name="edu_tipo_est" value="2">
+                            <label for="Particular">Particular</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="Subvencionado" name="edu_tipo_est" value="3">
+                            <label for="Subvencionado">Subvencionado</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <p>Último Curso aprobado</p>
+
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="curso_1" name="edu_ult_curso" value="1">
+                            <label for="curso_1">1</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="curso_2" name="edu_ult_curso" value="2">
+                            <label for="curso_2">2</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="curso_3" name="edu_ult_curso" value="3">
+                            <label for="curso_3">3</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="curso_4" name="edu_ult_curso" value="4">
+                            <label for="curso_4">4</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="curso_5" name="edu_ult_curso" value="5">
+                            <label for="curso_5">5</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="curso_6" name="edu_ult_curso" value="6">
+                            <label for="curso_6">6</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="curso_7" name="edu_ult_curso" value="7">
+                            <label for="curso_7">7</label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <label for="edu_anio_egreso">Año de Egreso</label>
+                        <input type="text" class="form-control" id="edu_anio_egreso" name="edu_anio_egreso" placeholder="">
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+
+                    <div class="form-group">
+                        <p>¿Actualmente está estudiando?</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_estudiando" name="edu_estudiando" value="1">
+                            <label for="s_estudiando">Si</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="n_estudiando" name="edu_estudiando" value="2">
+                            <label for="n_estudiando">No</label>
+                        </div>
+
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="form-group">
+                        <p>De estar estudiando, ¿tiene alguna de estas becas?</p>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="beca_1" name="edu_becas" value="1">
+                            <label for="beca_1">Beca indígena</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="beca_2" name="edu_becas" value="2">
+                            <label for="beca_2">Programa de Residencia Familiar</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="beca_3" name="edu_becas" value="3">
+                            <label for="beca_3">Beca Mejores Puntajes PSU</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="beca_4" name="edu_becas" value="4">
+                            <label for="beca_4">Beca Excelencia Académica</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="beca_5" name="edu_becas" value="5">
+                            <label for="beca_5">Beca Nuevo Milenio</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="beca_6" name="edu_becas" value="6">
+                            <label for="beca_6">Beca Nuevo Milenio cursos superiores</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="beca_7" name="edu_becas" value="7">
+                            <label for="beca_7">Beca Juan Gómez Millas</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="beca_8" name="edu_becas" value="8">
+                            <label for="beca_8">Beca Juan Gómez Millas cursos superiores</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="beca_9" name="edu_becas" value="9">
+                            <label for="beca_9">Beca para Hijos Profesionales de la Educación</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="beca_10" name="edu_becas" value="10">
+                            <label for="beca_10">Beca de excelencia técnica</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="beca_11" name="edu_becas" value="11">
+                            <label for="beca_11">Beca de Articulación</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="beca_12" name="edu_becas" value="12">
+                            <label for="beca_12">Crédito con garantía estatal</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="beca_13" name="edu_becas" value="13">
+                            <label for="beca_13">Beca Mantención Educación Superior</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="beca_14" name="edu_becas" value="14">
+                            <label for="beca_14">Beca indígena educación superior</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="beca_15" name="edu_becas" value="15">
+                            <label for="beca_15">Beca de Residencia Familiar Estudiantil</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="beca_16" name="edu_becas" value="16">
+                            <label for="beca_16">Beca Bicentenario</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="beca_17" name="edu_becas" value="17">
+                            <label for="beca_17">Beca bicentenario cursos superiores</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="beca_18" name="edu_becas" value="18">
+                            <label for="beca_18">Fondo Solidario de Crédito Universitario</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="beca_19" name="edu_becas" value="19">
+                            <label for="beca_19">Beca Interna de la Institución</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="beca_20" name="edu_becas" value="20">
+                            <label for="beca_20">Gratuidad en la Educación</label>
+                        </div>
+
+                        <div class="form-group pt-5 ">
+                            <input type="button" class="btn btn-primary btn-block" onclick="guardar_encuesta_educacion()" value="Guardar y seguir">  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carga JQUERY y otros scripts Necesarios-->
+        <script src="../../../../js/jquery-3.3.1.min.js"></script>
+        <!-- Fin Carga Scripts -->
+
+
+        
+        
+    </body>
+</html>

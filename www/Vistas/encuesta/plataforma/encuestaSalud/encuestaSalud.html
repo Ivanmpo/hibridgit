@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Encuesta Salud</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Carga de Bootstrap e OI Icons -->
+        <link href="../../../../css/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="../../../../font/open-iconic-bootstrap.css" rel="stylesheet">
+        <!-- Fin Carga de Bootstrap -->
+
+        <script type="text/javascript" src="encuestaSalud.js"></script>
+        <script type="text/javascript">
+                            //borrar_db();
+                            //baseDeDatos();
+                            crearTablas();
+                            llenar_encuesta_salud();
+                            //  crear_encuesta();
+
+                            //nueva_encuesta();
+                            //recuperar();
+        </script>
+        
+    </head>
+    <body>
+        
+        <ul class="nav nav-pills nav-fill ">
+            <li class="nav-item">
+                <a class="nav-link " href="../../../inicio/inicio.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="gotoplataforma" href="#">Plataforma</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link bg-success active" href="#">Encuesta Salud</a>
+            </li>
+        </ul>
+        
+        
+        
+        <div class="container pt-3 pb-3">
+
+            <div id="aviso" ></div>
+
+            <div class="card border-success">
+                <div class="card-header bg-success text-white">
+                    <h3 class="card-title">Encuesta Salud</h3>
+                </div>
+                <div class="card-body">
+                    <h3>Encuesta Salud</h3><br/>
+                    <div class="form-group">
+                        <p>Si existen niños menores de 6 años en su familia, ¿Lo están llevando al control niño sano en el centro de salud?</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="control_si" name="n_control" value="1">
+                            <label for="control_si">Si</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="control_no" name="n_control" value="2">
+                            <label for="control_no">No</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="no_corresponde" name="n_control" value="3">
+                            <label for="no_corresponde">No corresponde</label>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <p>¿Algún integrante de su grupo familiar tiene problemas en la escuela ,el trabajo, con los vecinos o dentro de la familia a causa del consumo de alcohol o drogas?</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_drogras" name="drogas" value="1">
+                            <label for="s_drogras">Si</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="n_drogras" name="drogas" value="2">
+                            <label for="n_drogras">No</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="sad_cons_drogas_d">¿Qué edad Tiene?</label>
+                        <input type="text" class="form-control" id="sad_cons_drogas_d" name="sad_cons_drogas_d" placeholder="edad">
+                    </div>
+                    <div class="form-group">
+                        <label for="sad_pat_ges">¿Usted posee alguna patología GES? Orientar con anexo</label>
+                        <p>Señálela (s): </p> <input type="text" class="form-control" id="sad_pat_ges" name="sad_pat_ges" placeholder=""><br/><br/>
+                    </div>
+
+
+                    <div class="form-group">
+                        <p>¿Hace uso de las garantías de atención que ofrece su sistema previsional de salud FONASA o ISAPRE ?</p>
+
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="s_prev" name="usa_prev" value="1">
+                            <label for="s_prev">Si</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="n_prev" name="usa_prev" value="2">
+                            <label for="n_prev">No</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p>¿Posee usted alguna de estas condiciones en forma permanente?</p>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="Ceguera" name="cronico" value="1">
+                            <label for="Ceguera">Ceguera</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="Dificultad_visual" name="cronico" value="2">
+                            <label for="Dificultad_visual">Dificultad visual</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="Mudez" name="cronico" value="3">
+                            <label for="Mudez">Mudez</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="Sordera" name="cronico" value="4">
+                            <label for="Sordera">Sordera</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="Dificultad_auditiva" name="cronico" value="5">
+                            <label for="Dificultad_auditiva">Dificultad auditiva</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="Dificultad_habla" name="cronico" value="6">
+                            <label for="Dificultad_habla">Dificultad en el habla</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="Enfermedades_siquiátricas" name="cronico" value="7">
+                            <label for="Enfermedades_siquiátricas">Enfermedades siquiátricas</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="Dificultad_física" name="cronico" value="8">
+                            <label for="Dificultad_física">Dificultad física ( requiere ayuda para su desplazamiento)</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="No_tiene" name="cronico" value="9">
+                            <label for="No_tiene">No tiene</label>
+                        </div>
+
+                    </div>
+                    <div class="form-group pt-5 ">
+                        <input type="button" class="btn btn-success btn-block" onclick="guardar_encuesta_salud()" value="Guardar y seguir">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Carga JQUERY y otros scripts Necesarios-->
+        <script src="../../../../js/jquery-3.3.1.min.js"></script>
+        <!-- Fin Carga Scripts -->
+
+
+        
+    </body>
+</html>

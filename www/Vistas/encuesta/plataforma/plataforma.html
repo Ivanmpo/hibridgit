@@ -18,59 +18,74 @@ and open the template in the editor.
 
     </head>
     <body>
-        <div class="container-fluid" style="padding-top: 5em" id="contenido">
-            <div class="card-deck pb-1">
 
+        <ul class="nav nav-pills nav-fill">
+            <li class="nav-item">
+                <a class="nav-link" href="../../inicio/inicio.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" id="gotoplataforma"  href="#">Plataforma</a>
+            </li>
+
+        </ul>
+
+
+
+
+
+        <div class="container-fluid" style="padding-top: 5em" id="contenido">
+            <h3>Plataforma de Encuestas</h3>
+            <div class="card-group pb-2 pt-2">
                 <!-- Carta Encuesta Trabajador -->
-                <div class="card border-danger">
+                <div class="card border-danger text-center">
                     <div class="card-body ">
                         <h5 class="card-title"><span class="oi oi-wrench"></span> Encuesta Trabajador</h5>
                         <p class="card-text">Encuesta referente a Trabajador</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <p class="card-text"><small class="text-muted">The Darkness Hour</small></p>
                         <button type="button" class="btn btn-danger" id="crear_et">Comenzar</button>
                     </div>
                 </div>
                 <!-- Fin Carta Encuesta Trabajador -->
                 <!-- Carta Encuesta Educación -->
-                <div class="card border-primary">
+                <div class="card border-primary text-center">
                     <div class="card-body ">
                         <h5 class="card-title"><span class="oi oi-book"></span> Encuesta Educación</h5>
                         <p class="card-text">Encuesta referente a Educación</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        <a href="#" class="btn btn-primary">Comenzar</a>
+                        <p class="card-text"><small class="text-muted">The Darkness Hour</small></p>
+                        <a href="#" class="btn btn-primary" id="crear_ee">Comenzar</a>
                     </div>
                 </div>
                 <!-- Fin Carta Encuesta Educacion -->
                 <!-- Carta Encuesta Salud -->
-                <div class="card border-success">
+                <div class="card border-success text-center">
                     <div class="card-body">
                         <h5 class="card-title"><span class="oi oi-heart"></span> Encuesta Salud</h5>
                         <p class="card-text">Encuesta referente a Salud</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        <a href="#" class="btn btn-success">Comenzar</a>
+                        <p class="card-text"><small class="text-muted">The Darkness Hour</small></p>
+                        <a href="#" class="btn btn-success" id="crear_es">Comenzar</a>
                     </div>
                 </div>
                 <!-- Fin Carta Encuesta Salud -->
             </div>
-            <div class="card-deck">
+            <div class="card-group">
 
                 <!-- Carta Encuesta Vivienda -->
-                <div class="card border-warning">
+                <div class="card border-warning text-center">
                     <div class="card-body">
                         <h5 class="card-title"><span class="oi oi-home"></span> Encuesta Vivienda</h5>
                         <p class="card-text">Encuesta referente a Vivienda</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        <a href="#" class="btn btn-warning">Comenzar</a>
+                        <p class="card-text"><small class="text-muted">The Darkness Hour</small></p>
+                        <a href="#" class="btn btn-warning" id="crear_ev">Comenzar</a>
                     </div>
                 </div>
                 <!-- Fin Carta Encuesta Vivienda -->
                 <!-- Carta Encuesta Familia -->
-                <div class="card border-secondary">
+                <div class="card border-secondary text-center">
                     <div class="card-body">
                         <h5 class="card-title"><span class="oi oi-people"></span> Encuesta Familia</h5>
                         <p class="card-text">Encuesta referente a Familia</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        <a href="#" class="btn btn-secondary ">Comenzar</a>
+                        <p class="card-text"><small class="text-muted">The Darkness Hour</small></p>
+                        <a href="#" class="btn btn-secondary" id="crear_ef">Comenzar</a>
                     </div>
                 </div>
                 <!-- Fin Carta Encuesta Familia -->
@@ -79,11 +94,12 @@ and open the template in the editor.
 
 
             </div>
+        </div>
 
 
-            <script src="../../../js/jquery-3.3.1.min.js"></script>
-            <script src="../../../js/bootstrap/bootstrap.js"></script>
+        <script src="../../../js/jquery-3.3.1.min.js"></script>
+        <script src="../../../js/bootstrap/bootstrap.js"></script>
 
-            <script src="plataforma.js"></script>
+        <script src="plataforma.js"></script>
     </body>
 </html>

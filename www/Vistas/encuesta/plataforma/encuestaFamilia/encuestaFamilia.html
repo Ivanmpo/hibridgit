@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Encuesta Familia</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+        <!-- Carga de Bootstrap e OI Icons -->
+        <link href="../../../../css/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="../../../../font/open-iconic-bootstrap.css" rel="stylesheet">
+        <!-- Fin Carga de Bootstrap -->
+    </head>
+    <body>
+        
+        
+        <ul class="nav nav-pills nav-fill ">
+            <li class="nav-item">
+                <a class="nav-link " href="../../../inicio/inicio.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="gotoplataforma" href="#">Plataforma</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link bg-secondary active" href="#">Encuesta Familia</a>
+            </li>
+        </ul>
+        
+        
+
+        <div class="container pt-3 pb-3">
+
+            <div id="aviso" ></div>
+            <div class="col-md-12">
+                <h3>Familiares</h3>
+            </div>
+            <table class="table table-responsive pt-2 ">
+                <thead>
+                    <tr class="table-active bg-secondary text-white">
+                        <th scope="col">RUN</th>
+                        <th scope="col">Nombres</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Acción</th>
+
+                    </tr>
+                </thead>
+                <tbody id="listaFamiliares">
+
+
+                </tbody>
+            </table>
+            <button id="asd" type="button" class="btn btn-outline-secondary btn-block">Agregar</button>
+        </div>
+        
+        
+        
+        <!-- Carga JQUERY y otros scripts Necesarios-->
+        <script src="../../../../js/jquery-3.3.1.min.js"></script>
+        <!-- Fin Carga Scripts -->
+
+
+        <script type="text/javascript" src="encuestaFamilia.js"></script>
+        <script type="text/javascript">
+    
+            listado();
+        </script>
+    </body>
+</html>

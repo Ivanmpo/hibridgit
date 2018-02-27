@@ -8,8 +8,6 @@ $(document).ready(function () {
     db.transaction(function (tx) {
         tx.executeSql('SELECT * FROM encuesta WHERE filial_empresa_id=' + filemp_id + ';', [], function (tx, results) {
             var len = results.rows.length;
-            id = results.rows.item(len - 1).encuesta_id;
-
             for (i = 0; i < len; i++) {
                 $("#listaEncuestas").append("<tr>");
                 $("#listaEncuestas").append("<th scope='row'>" + i + "</th>");
@@ -43,7 +41,7 @@ $(document).ready(function () {
 
     }
 
-    $("#encuestar").click(function (event) {
+    $("#encuestar").click(function () {
 
         window.location.href = "../encuesta/encuesta.html?filemp_id=" + filemp_id;
 

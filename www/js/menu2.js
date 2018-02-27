@@ -1,42 +1,38 @@
 
+$(document).ready(main);
 
-$(document).ready(main);        
-
-
+var open = 0;
 function main() {
+    $('#button-menu').click(function () {
 
+        if ($('#button-menu').attr('class') === 'oi oi-menu') {
 
-    /*===============================================================*/
-    /* Funcionalidad basica del menu */
-    $('.menu_bar #dropmenu').click(function () {
-
-        if ($('#dropmenu').attr('class') === 'oi oi-menu') {
-             $('#dropmenu').removeClass('oi oi-menu').addClass('oi oi-x');
-            $('nav').animate({
-                left: '0%'
+            $('#button-menu').removeClass('oi oi-menu').addClass('oi oi-x');
+//            $('.navegacion .menu').css({'left': '0px'});
+            $('.navegacion .menu').animate({
+                left: '0px'
             });
-            
-            
+            open = 1;
 
         } else {
-            $('#dropmenu').removeClass('oi oi-x').addClass('oi oi-menu');
-            $('nav').animate({
+            $('#button-menu').removeClass('oi oi-x').addClass('oi oi-menu');
+//            $('.navegacion .menu').css({'left': '-100%'});
+            $('.navegacion .menu').animate({
                 left: '-100%'
             });
-
         }
-
     });
 
     /*===============================================================*/
     /* Funcionalidad propia del menu de navegacion */
     $("#pag1").click(function (event) {
 
+        $("#contenido").fadeOut();
         $('nav').animate({
 
-            left: '-100%'
+            left: '-320px'
 
-        }, 'fast', function () {
+        }, '400', function () {
             window.location.href = "../inicio/inicio.html";
         });
     });
@@ -44,7 +40,7 @@ function main() {
     $("#pag2").click(function (event) {
 
 
-        $("body div#contenido").fadeOut('fast');
+
         $('nav').animate({
             left: '-100%'
         }, 'fast', function () {
@@ -52,21 +48,28 @@ function main() {
             window.location.href = "../empresas/empresas.html";
 
         });
+
     });
 
     /*===============================================================*/
     /* Funcion que, al hacer click fuera del menu, este desaparezcla*/
-    $("html").click(function () {
-        if ($('#dropmenu').attr('class') === 'oi oi-x') {
-            $('#dropmenu').removeClass('oi oi-x').addClass('oi oi-menu');
-            $('nav').animate({
-                left: '-100%'
-            });
+
+    $(document).click(function (e) {
+        var container = $("header nav ul");
+        if ($('#button-menu').attr('class') === 'oi oi-x') {
+
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
+                $('#button-menu').removeClass('oi oi-x').addClass('oi oi-menu');
+                $('.navegacion .menu').css({'left': '-320px'});
+
+
+            }
         }
     });
-    $('header').click(function (e) {
+    $('#button-menu').click(function (e) {
         e.stopPropagation();
     });
+
 
     /*===============================================================*/
     /* LOGOUT */
@@ -84,7 +87,14 @@ function main() {
         window.location.href = "../../index.html";
     });
     /*===============================================================*/
+
+
+
+
+
+
+
+
+
+
 }
-
-
-
