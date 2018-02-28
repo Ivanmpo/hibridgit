@@ -35,7 +35,13 @@
              */
             /*===============================================================*/
             /* ROMPE SESSIONES*/
-            if (sessionStorage.getItem('user_id') !== null) {
+            if (localStorage.getItem("Pass")) {
+                if (localStorage.getItem("Pass") === "true") {
+                    sessionStorage.setItem("tipo", '1');
+                    window.location.href = "Vistas/inicio/inicio.html";
+
+                }
+            } else if (sessionStorage.getItem("user_id")) {
                 window.location.href = "Vistas/inicio/inicio.html";
             }
         </script>
@@ -85,8 +91,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-check ">
-                                    <input type="checkbox" class="form-check-input" id="remember">
-                                    <label class="form-check-label" for="remember">Recordar usuario</label>
+                                    <input type="checkbox" class="form-check-input" id="recordar">
+                                    <label class="form-check-label" for="recordar">Recordar usuario</label>
                                 </div>
                             </div>
                         </div>

@@ -1,42 +1,45 @@
 
 
-var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+var db = window.openDatabase('mydb', '1.0', 'Test DB', 20 * 1024 * 1024);
 var encuesta_id = getp('encuesta_id');
 var filemp_id = getp('filemp_id');
 var existe = 0;
 
-function crearTablas() {
-    db.transaction(function (tx) {
-        tx.executeSql('CREATE TABLE IF NOT EXISTS encuesta_educacion(encuesta_educacion_id INTEGER PRIMARY KEY AUTOINCREMENT,encuesta_id INTEGER NOT NULL,edu_nivel_esc INTEGER NOT NULL, edu_tipo_est INTEGER NULL, edu_ult_curso INTEGER NULL, edu_anio_egreso INTEGER NULL, edu_estudiando INTEGER NOT NULL, edu_becas TEXT NULL)');
-
-    });
-
-}
-
+/*
+ function crearTablas() {
+ db.transaction(function (tx) {
+ tx.executeSql('CREATE TABLE IF NOT EXISTS encuesta_educacion(encuesta_educacion_id INTEGER PRIMARY KEY AUTOINCREMENT,encuesta_id INTEGER NOT NULL,edu_nivel_esc INTEGER NOT NULL, edu_tipo_est INTEGER NULL, edu_ult_curso INTEGER NULL, edu_anio_egreso INTEGER NULL, edu_estudiando INTEGER NOT NULL, edu_becas TEXT NULL)');
+ 
+ });
+ 
+ }
+ */
 
 function guardar_encuesta_educacion() {
-    //id_ultimo('SELECT * FROM encuesta;',function (id){
-    db.transaction(function (tx) {
-        var edu_nivel_esc = capturar("educacion");  //document.getElementById('edu_nivel_esc').value;
-        var edu_tipo_est = capturar("edu_tipo_est");  //document.getElementById('edu_tipo_est').value;
-        var edu_ult_curso = capturar("edu_ult_curso"); //document.getElementById('edu_ult_curso').value;
-        var edu_anio_egreso = document.getElementById('edu_anio_egreso').value;
-        var edu_estudiando = capturar("edu_estudiando"); //document.getElementById('edu_estudiando').value;
-        var edu_becas = capturar_checkbox("edu_becas");  //document.getElementById('edu_becas').value;
-        if (existe === 0) {
-            tx.executeSql('INSERT INTO encuesta_educacion(encuesta_id,edu_nivel_esc,edu_tipo_est,edu_ult_curso,edu_anio_egreso,edu_estudiando,edu_becas) VALUES(?,?,?,?,?,?,?)'
-                    , [encuesta_id, edu_nivel_esc, edu_tipo_est, edu_ult_curso, edu_anio_egreso, edu_estudiando, edu_becas]);
-        } else {
-            alerta("Se actualizara");
-            tx.executeSql('UPDATE encuesta_educacion SET edu_nivel_esc=?,edu_tipo_est=?,edu_ult_curso=?,edu_anio_egreso=?,edu_estudiando=?,edu_becas=? WHERE encuesta_id=?'
-                    , [edu_nivel_esc, edu_tipo_est, edu_ult_curso, edu_anio_egreso, edu_estudiando, edu_becas, encuesta_id]);
-        }
+    if (esValido()) {
+        db.transaction(function (tx) {
+            var edu_nivel_esc = capturar("educacion");  //document.getElementById('edu_nivel_esc').value;
+            var edu_tipo_est = capturar("edu_tipo_est");  //document.getElementById('edu_tipo_est').value;
+            var edu_ult_curso = capturar("edu_ult_curso"); //document.getElementById('edu_ult_curso').value;
+            var edu_anio_egreso = document.getElementById('edu_anio_egreso').value;
+            var edu_estudiando = capturar("edu_estudiando"); //document.getElementById('edu_estudiando').value;
+            var edu_becas = capturar_checkbox("edu_becas");  //document.getElementById('edu_becas').value;
+            if (existe === 0) {
+                tx.executeSql('INSERT INTO encuesta_educacion(encuesta_id,edu_nivel_esc,edu_tipo_est,edu_ult_curso,edu_anio_egreso,edu_estudiando,edu_becas) VALUES(?,?,?,?,?,?,?)'
+                        , [encuesta_id, edu_nivel_esc, edu_tipo_est, edu_ult_curso, edu_anio_egreso, edu_estudiando, edu_becas]);
+            } else {
+                alert("Se actualizara");
+                tx.executeSql('UPDATE encuesta_educacion SET edu_nivel_esc=?,edu_tipo_est=?,edu_ult_curso=?,edu_anio_egreso=?,edu_estudiando=?,edu_becas=? WHERE encuesta_id=?'
+                        , [edu_nivel_esc, edu_tipo_est, edu_ult_curso, edu_anio_egreso, edu_estudiando, edu_becas, encuesta_id]);
+            }
 
+            location.href = "../plataforma.html?filemp_id=" + filemp_id + "&encuesta_id=" + encuesta_id;
 
-    });
-    //}); 
-
-    window.location.href = "../plataforma.html?filemp_id=" + filemp_id + "&encuesta_id=" + encuesta_id;
+        });
+        //}); 
+    } else {
+        alert("Ingrese los campos correctamente para continuar");
+    }
 
 }
 
@@ -62,6 +65,7 @@ function llenar_encuesta_educacion() {
             }
         }, null);
     });
+
 }
 
 
@@ -121,5 +125,5 @@ function setear_checkbox(checkboxName, array) {
             }
         }
         document.getElementsByName(checkboxName).item(parseInt(valor) - 1).checked = true;
-    }  
+    }
 }

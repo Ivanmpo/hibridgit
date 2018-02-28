@@ -1,50 +1,50 @@
 
 
-var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+var db = openDatabase('mydb', '1.0', 'Test DB', 20 * 1024 * 1024);
 var encuesta_id = getp('encuesta_id');
 var filemp_id = getp('filemp_id');
-var existe = 0;
+var existe;
 
 
-$(document).ready(function(){
-   $("#gotoplataforma").click(function () {
-        window.location.href = "../plataforma.html?filemp_id="+ filemp_id +"&encuesta_id=" + encuesta_id;
-    }); 
+$(document).ready(function () {
+    $("#gotoplataforma").click(function () {
+        window.location.href = "../plataforma.html?filemp_id=" + filemp_id + "&encuesta_id=" + encuesta_id;
+    });
 });
 
-
-function crearTablas() {
-    db.transaction(function (tx) {
-
-        tx.executeSql('CREATE TABLE IF NOT EXISTS encuesta_salud(encuesta_salud_id INTEGER PRIMARY KEY AUTOINCREMENT, encuesta_id INTEGER NOT NULL, sad_cont_menores INTEGER NOT NULL, sad_cons_drogas INTEGER NOT NULL, sad_cons_drogas_d TEXT NULL, sad_pat_ges TEXT NULL, sad_usa_prevision INTEGER NOT NULL, sad_cond_permanente TEXT NULL)');
-
-    });
-}
-
-
+/*
+ function crearTablas() {
+ db.transaction(function (tx) {
+ 
+ tx.executeSql('CREATE TABLE IF NOT EXISTS encuesta_salud(encuesta_salud_id INTEGER PRIMARY KEY AUTOINCREMENT, encuesta_id INTEGER NOT NULL, sad_cont_menores INTEGER NOT NULL, sad_cons_drogas INTEGER NOT NULL, sad_cons_drogas_d TEXT NULL, sad_pat_ges TEXT NULL, sad_usa_prevision INTEGER NOT NULL, sad_cond_permanente TEXT NULL)');
+ 
+ });
+ }
+ 
+ */
 function guardar_encuesta_salud() {
-    //id_ultimo('SELECT * FROM encuesta;',function (id){
-    db.transaction(function (tx) {
-        var sad_cont_menores = capturar("n_control"); //document.getElementById('sad_cont_menores').value;
-        var sad_cons_drogas = capturar("drogas"); //document.getElementById('sad_cons_drogas').value;
-        var sad_cons_drogas_d = document.getElementById('sad_cons_drogas_d').value;
-        var sad_pat_ges = document.getElementById('sad_pat_ges').value;
-        var sad_usa_prevision = capturar("usa_prev"); //document.getElementById('sad_usa_prevision').value;
-        var sad_cond_permanente = capturar_checkbox("cronico"); //document.getElementById('sad_cond_permanente').value;
+    if (esValido()) {
+        db.transaction(function (tx) {
+            var sad_cont_menores = capturar("n_control"); //document.getElementById('sad_cont_menores').value;
+            var sad_cons_drogas = capturar("drogas"); //document.getElementById('sad_cons_drogas').value;
+            var sad_cons_drogas_d = document.getElementById('sad_cons_drogas_d').value;
+            var sad_pat_ges = document.getElementById('sad_pat_ges').value;
+            var sad_usa_prevision = capturar("usa_prev"); //document.getElementById('sad_usa_prevision').value;
+            var sad_cond_permanente = capturar_checkbox("cronico"); //document.getElementById('sad_cond_permanente').value;
 
-        if (existe === 0) {
-            tx.executeSql('INSERT INTO encuesta_salud(encuesta_id,sad_cont_menores,sad_cons_drogas,sad_cons_drogas_d,sad_pat_ges,sad_usa_prevision,sad_cond_permanente) VALUES(?,?,?,?,?,?,?)'
-                    , [encuesta_id, sad_cont_menores, sad_cons_drogas, sad_cons_drogas_d, sad_pat_ges, sad_usa_prevision, sad_cond_permanente]);
-        } else {
-alerta("Se actualizara");
-            tx.executeSql('UPDATE encuesta_salud SET sad_cont_menores=?,sad_cons_drogas=?,sad_cons_drogas_d=?,sad_pat_ges=?,sad_usa_prevision=?,sad_cond_permanente=? WHERE encuesta_id=?'
-                    , [sad_cont_menores, sad_cons_drogas, sad_cons_drogas_d, sad_pat_ges, sad_usa_prevision, sad_cond_permanente, encuesta_id]);
-        }
-
-    });
-    //});
-
-    window.location.href = "../plataforma.html?filemp_id=" + filemp_id + "&encuesta_id=" + encuesta_id;
+            if (existe === 0) {
+                tx.executeSql('INSERT INTO encuesta_salud(encuesta_id,sad_cont_menores,sad_cons_drogas,sad_cons_drogas_d,sad_pat_ges,sad_usa_prevision,sad_cond_permanente) VALUES(?,?,?,?,?,?,?)'
+                        , [encuesta_id, sad_cont_menores, sad_cons_drogas, sad_cons_drogas_d, sad_pat_ges, sad_usa_prevision, sad_cond_permanente]);
+            } else {
+                tx.executeSql('UPDATE encuesta_salud SET sad_cont_menores=?,sad_cons_drogas=?,sad_cons_drogas_d=?,sad_pat_ges=?,sad_usa_prevision=?,sad_cond_permanente=? WHERE encuesta_id=?'
+                        , [sad_cont_menores, sad_cons_drogas, sad_cons_drogas_d, sad_pat_ges, sad_usa_prevision, sad_cond_permanente, encuesta_id]);
+            }
+            location.href = "../plataforma.html?filemp_id=" + filemp_id + "&encuesta_id=" + encuesta_id;
+        });
+        //});
+    } else {
+        alert("Ingrese los campos correctamente para continuar");
+    }
 
 }
 
@@ -59,8 +59,8 @@ function llenar_encuesta_salud() {
                 existe = 1;
                 $('input[name=n_control][value=' + results.rows.item(0).sad_cont_menores + ']').prop("checked", true);
                 $('input[name=drogas][value=' + results.rows.item(0).sad_cons_drogas + ']').prop("checked", true);
-                
-                
+
+
                 document.getElementById('sad_cons_drogas_d').value = results.rows.item(0).sad_cons_drogas_d;
                 document.getElementById('sad_pat_ges').value = results.rows.item(0).sad_pat_ges;
                 $('input[name=usa_prev][value=' + results.rows.item(0).sad_usa_prevision + ']').prop("checked", true);
@@ -126,5 +126,5 @@ function setear_checkbox(checkboxName, array) {
             }
         }
         document.getElementsByName(checkboxName).item(parseInt(valor) - 1).checked = true;
-    }  
+    }
 }

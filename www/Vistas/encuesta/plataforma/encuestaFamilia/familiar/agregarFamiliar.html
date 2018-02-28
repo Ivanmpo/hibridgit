@@ -20,8 +20,8 @@ and open the template in the editor.
         <!-- Fin rompe sesion-->
     </head>
     <body>
-        
-        <ul class="nav nav-pills nav-fill ">
+
+        <ul class="nav nav-pills nav-fill border border-secondary ">
             <li class="nav-item">
                 <a class="nav-link " href="../../../inicio/inicio.html">Inicio</a>
             </li>
@@ -32,9 +32,9 @@ and open the template in the editor.
                 <a class="nav-link bg-secondary active" href="#">Agregar Familiar</a>
             </li>
         </ul>
-        
-        
-        
+
+
+
         <div class="container pt-3 pb-3">
             <div id="status" ></div>
             <!--<input type="text" id="id" name="id">-->
@@ -58,13 +58,23 @@ and open the template in the editor.
                         <label for="fam_apellido_m">Apellido Materno</label>
                         <input type="text" class="form-control" id="fam_apellido_m" name="fam_apellido_m" placeholder="Apellido Materno">
                     </div>
-                    <div class="form-group">
-                        <label for="fam_run">Rut</label>
-                        <input type="text" class="form-control" id="fam_run" name="fam_run" placeholder="RUT">
-                        <label for="fam_dv">-</label>
-                        <input type="text" class="form-control" id="fam_dv" name="fam_dv" placeholder="DV" size="1">
-                    </div>
 
+                    <div class="form-row">
+                        <div class="form-group col-8">
+                            <label for="fam_run">RUT</label>
+                            <input type="text" class="form-control" id="fam_run" name="fam_run" placeholder="RUT">
+                        </div>
+
+                        <div class="col-4">
+                            <label for="fam_dv"> DV</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-secondary text-white">-</div>
+                                </div>
+                                <input type="text" class="form-control" id="fam_dv" name="fam_dv" placeholder="DV" size="1">
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="fam_fec_nacimiento">Fecha de nacimiento</label>
                         <input type="text" class="form-control" id="fam_fec_nacimiento" name="fam_fec_nacimiento" placeholder="Fecha de nacimiento">
@@ -107,12 +117,13 @@ and open the template in the editor.
         <!-- Fin Carga Scripts -->
 
 
+        <script type="text/javascript" src="agregarFamiliarValidar.js"></script>
         <script type="text/javascript" src="agregarFamiliar.js"></script>
         <script type="text/javascript">
                             //borrar_db();
                             //baseDeDatos();	
 
-                            crearTablas();
+                            //crearTablas();
                             //  crear_encuesta();
 
                             //nueva_encuesta();

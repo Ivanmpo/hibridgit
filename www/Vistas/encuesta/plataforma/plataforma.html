@@ -18,9 +18,9 @@ and open the template in the editor.
 
     </head>
     <body>
-
-        <ul class="nav nav-pills nav-fill">
-            <li class="nav-item">
+        
+        <ul class="nav nav-pills nav-fill border border-primary ">
+            <li class="nav-item ">
                 <a class="nav-link" href="../../inicio/inicio.html">Inicio</a>
             </li>
             <li class="nav-item">
@@ -33,7 +33,7 @@ and open the template in the editor.
 
 
 
-        <div class="container-fluid" style="padding-top: 5em" id="contenido">
+        <div class="container-fluid pt-3 pb-3"  id="contenido">
             <h3>Plataforma de Encuestas</h3>
             <div class="card-group pb-2 pt-2">
                 <!-- Carta Encuesta Trabajador -->
@@ -41,7 +41,7 @@ and open the template in the editor.
                     <div class="card-body ">
                         <h5 class="card-title"><span class="oi oi-wrench"></span> Encuesta Trabajador</h5>
                         <p class="card-text">Encuesta referente a Trabajador</p>
-                        <p class="card-text"><small class="text-muted">The Darkness Hour</small></p>
+                        <p class="card-text"><small class="text-muted">Estado</small></p>
                         <button type="button" class="btn btn-danger" id="crear_et">Comenzar</button>
                     </div>
                 </div>
@@ -51,7 +51,7 @@ and open the template in the editor.
                     <div class="card-body ">
                         <h5 class="card-title"><span class="oi oi-book"></span> Encuesta Educación</h5>
                         <p class="card-text">Encuesta referente a Educación</p>
-                        <p class="card-text"><small class="text-muted">The Darkness Hour</small></p>
+                        <p class="card-text"><small class="text-muted">Estado</small></p>
                         <a href="#" class="btn btn-primary" id="crear_ee">Comenzar</a>
                     </div>
                 </div>
@@ -59,9 +59,9 @@ and open the template in the editor.
                 <!-- Carta Encuesta Salud -->
                 <div class="card border-success text-center">
                     <div class="card-body">
-                        <h5 class="card-title"><span class="oi oi-heart"></span> Encuesta Salud</h5>
+                        <h5 class="card-title"><span class="oi oi-heart"></span> Encuesta de Salud</h5>
                         <p class="card-text">Encuesta referente a Salud</p>
-                        <p class="card-text"><small class="text-muted">The Darkness Hour</small></p>
+                        <p class="card-text"><small class="text-muted">Estado</small></p>
                         <a href="#" class="btn btn-success" id="crear_es">Comenzar</a>
                     </div>
                 </div>
@@ -74,7 +74,7 @@ and open the template in the editor.
                     <div class="card-body">
                         <h5 class="card-title"><span class="oi oi-home"></span> Encuesta Vivienda</h5>
                         <p class="card-text">Encuesta referente a Vivienda</p>
-                        <p class="card-text"><small class="text-muted">The Darkness Hour</small></p>
+                        <p class="card-text"><small class="text-muted">Estado</small></p>
                         <a href="#" class="btn btn-warning" id="crear_ev">Comenzar</a>
                     </div>
                 </div>
@@ -84,7 +84,7 @@ and open the template in the editor.
                     <div class="card-body">
                         <h5 class="card-title"><span class="oi oi-people"></span> Encuesta Familia</h5>
                         <p class="card-text">Encuesta referente a Familia</p>
-                        <p class="card-text"><small class="text-muted">The Darkness Hour</small></p>
+                        <p class="card-text"><small class="text-muted">Estado</small></p>
                         <a href="#" class="btn btn-secondary" id="crear_ef">Comenzar</a>
                     </div>
                 </div>
@@ -101,5 +101,10 @@ and open the template in the editor.
         <script src="../../../js/bootstrap/bootstrap.js"></script>
 
         <script src="plataforma.js"></script>
+        <script type="text/javascript">
+
+            crearTablas();
+
+        </script>
     </body>
 </html>

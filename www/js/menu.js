@@ -1,6 +1,6 @@
 
 
-$(document).ready(main);        
+$(document).ready(main);
 
 
 function main() {
@@ -11,12 +11,12 @@ function main() {
     $('.menu_bar #dropmenu').click(function () {
 
         if ($('#dropmenu').attr('class') === 'oi oi-menu') {
-             $('#dropmenu').removeClass('oi oi-menu').addClass('oi oi-x');
+            $('#dropmenu').removeClass('oi oi-menu').addClass('oi oi-x');
             $('nav').animate({
                 left: '0%'
             });
-            
-            
+
+
 
         } else {
             $('#dropmenu').removeClass('oi oi-x').addClass('oi oi-menu');
@@ -73,11 +73,21 @@ function main() {
     $("#mLogout").click(function (event) {
 
         try {
-            sessionStorage.clear();
-            if (localStorage.getItem("remember") !== "1") {
-                localStorage.removeItem("user");
+            if (sessionStorage.getItem('tipo') === "1") {
+                
+                localStorage.removeItem("Nombre");
+                localStorage.removeItem("Apellido");
+                localStorage.removeItem('Pass');
+                
+                localStorage.removeItem("user_id");
+                sessionStorage.removeItem("tipo");
+
+            } else {
+                localStorage.removeItem("remember");
+                localStorage.removeItem("Usuario");
+                sessionStorage.clear();
             }
-            alert("Has sido desconectado satisfactoriamente :)");
+            alert("Has sido desconectado satisfactoriamente.");
         } catch (err) {
             alert(err.message);
         }

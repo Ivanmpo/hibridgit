@@ -14,10 +14,10 @@ $(document).ready(function () {
                 $("#listaEncuestas").append("<td> " + results.rows.item(i).enc_nombres + " </td>");
                 $("#listaEncuestas").append("<td>" + results.rows.item(i).enc_apellido_p + " " + results.rows.item(i).enc_apellido_m + "</td>");
                 /* BOTON ACCION */
-                
+
                 //$("#listaEncuestas").append("<td><button type='button' class='btn btn-success' >Continuar</button></td>");
-                $("#listaEncuestas").append("<td><a class='btn btn-success' href='../encuesta/plataforma/plataforma.html?filemp_id="+ filemp_id +"&encuesta_id=" + results.rows.item(i).encuesta_id + " ' >Continuar</a></td>");
-                
+                $("#listaEncuestas").append("<td><a class='btn btn-success ' href='../encuesta/plataforma/plataforma.html?filemp_id=" + filemp_id + "&encuesta_id=" + results.rows.item(i).encuesta_id + " ' >Continuar</a></td>");
+
                 /* FIN BOTON ACCION*/
                 //$("#listaEncuestas").append("<td> <input type='button' class='btn btn-primary' onClick='chevar(" + filemp['filial_empresa_id'] + ")' value='Ver Encuestas'>    </td>");
                 //$("#listaEmpresas").append("<td> <input type='button' class='btn btn-primary' onClick='chevar(" + filemp['filial_empresa_id'] + ")' value='Agregar Encuesta'>    </td>");
@@ -30,27 +30,29 @@ $(document).ready(function () {
 
 
 
-
-    var user_id = sessionStorage.getItem('user_id');
-
-    /* SI ESTA OFFLINE */
-    if (!window.navigator.onLine) {
-
-        avisar("Se encuentra sin conexion");
-
-
+    /* MUESTA MENSAJE SI ESTA OFFLINE */
+    if (!navigator.onLine) {
+  
+        avisar("Se encuentra sin conexión");
     }
+    window.addEventListener('online', function (e) {
+        avisar("Se ha contectado");
+    });
+    window.addEventListener('offline', function (e) {
+        avisar("Se ha quedado sin conexión");
+    });
+    /* FIN MUESTA MENSAJE SI ESTA OFFLINE */
 
     $("#encuestar").click(function () {
 
-        window.location.href = "../encuesta/encuesta.html?filemp_id=" + filemp_id;
+        location.href = "../encuesta/encuesta.html?filemp_id=" + filemp_id;
 
     });
 
 });
 
 function chevar(filemp_id) {
-    window.location.href = "../listaencuestas/listaencuestas.html?filemp_id=" + filemp_id;
+    location.href = "../listaencuestas/listaencuestas.html?filemp_id=" + filemp_id;
 
     //$("#contenido").load("encuesta/encuesta.html?filemp_id="+filemp_id);
 

@@ -1,58 +1,60 @@
-var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+var db = openDatabase('mydb', '1.0', 'Test DB', 20 * 1024 * 1024);
 var encuesta_id = getp('encuesta_id');
 var filemp_id = getp('filemp_id');
+
 var existe = 0;
-$(document).ready(function(){
-    
-   $("#gotoplataforma").click(function () {
-        window.location.href = "../plataforma.html?filemp_id="+ filemp_id +"&encuesta_id=" + encuesta_id;
-    }); 
+$(document).ready(function () {
+
+    $("#gotoplataforma").click(function () {
+        window.location.href = "../plataforma.html?filemp_id=" + filemp_id + "&encuesta_id=" + encuesta_id;
+    });
 });
 
 
-
-function crearTablas() {
-    db.transaction(function (tx) {
-
-        tx.executeSql('CREATE TABLE IF NOT EXISTS encuesta_vivienda(encuesta_vivienda_id INTEGER PRIMARY KEY AUTOINCREMENT, encuesta_id INTEGER NOT NULL, viv_tenencia INTEGER NOT NULL, viv_sitio INTEGER NOT NULL, viv_post_subsidio INTEGER NOT NULL, viv_libreta INTEGER NOT NULL, viv_libreta_anio INTEGER NOT NULL, viv_monto_ahorro INTEGER NOT NULL, viv_fam_ocupante INTEGER NOT NULL, viv_num_personas INTEGER NOT NULL, viv_num_dormitorios INTEGER NOT NULL, viv_prov_agua INTEGER NOT NULL, viv_sub_agua INTEGER NOT NULL, viv_ener_electrica INTEGER NOT NULL, viv_elim_excretas INTEGER NOT NULL, viv_reg_hogares INTEGER NOT NULL, viv_tramo_grupo INTEGER NOT NULL, viv_ben_subsidio TEXT NOT NULL, viv_otro_subsidio TEXT NOT NULL)');
-    });
-}
-
+/*
+ function crearTablas() {
+ db.transaction(function (tx) {
+ 
+ tx.executeSql('CREATE TABLE IF NOT EXISTS encuesta_vivienda(encuesta_vivienda_id INTEGER PRIMARY KEY AUTOINCREMENT, encuesta_id INTEGER NOT NULL, viv_tenencia INTEGER NOT NULL, viv_sitio INTEGER NOT NULL, viv_post_subsidio INTEGER NOT NULL, viv_libreta INTEGER NOT NULL, viv_libreta_anio INTEGER NOT NULL, viv_monto_ahorro INTEGER NOT NULL, viv_fam_ocupante INTEGER NOT NULL, viv_num_personas INTEGER NOT NULL, viv_num_dormitorios INTEGER NOT NULL, viv_prov_agua INTEGER NOT NULL, viv_sub_agua INTEGER NOT NULL, viv_ener_electrica INTEGER NOT NULL, viv_elim_excretas INTEGER NOT NULL, viv_reg_hogares INTEGER NOT NULL, viv_tramo_grupo INTEGER NOT NULL, viv_ben_subsidio TEXT NOT NULL, viv_otro_subsidio TEXT NOT NULL)');
+ });
+ }
+ */
 
 function guardar_encuesta_vivienda() {
-    //id_ultimo('SELECT * FROM encuesta;',function (id){
-    db.transaction(function (tx) {
-        var viv_tenencia = capturar("viv_tenencia"); //document.getElementById('viv_tenencia').value;
-        var viv_sitio = capturar("sit_tenencia"); //document.getElementById('viv_sitio').value;
-        var viv_post_subsidio = capturar("p_subsidio"); //document.getElementById('viv_post_subsidio').value;
-        var viv_libreta = capturar("libreta"); //document.getElementById('viv_libreta').value;
-        var viv_libreta_anio = document.getElementById('viv_libreta_anio').value;
-        var viv_monto_ahorro = document.getElementById('viv_monto_ahorro').value;
-        var viv_fam_ocupante = capturar("ocupante"); // document.getElementById('viv_fam_ocupante').value;
-        var viv_num_personas = document.getElementById('viv_num_personas').value;
-        var viv_num_dormitorios = document.getElementById('viv_num_dormitorios').value;
-        var viv_prov_agua = capturar("agua"); //document.getElementById('viv_prov_agua').value;
-        var viv_sub_agua = capturar("s_agua"); //document.getElementById('viv_sub_agua').value;
-        var viv_ener_electrica = capturar("energia"); //document.getElementById('viv_ener_electrica').value;
-        var viv_elim_excretas = capturar("excretas"); //document.getElementById('viv_elim_excretas').value;
-        var viv_reg_hogares = capturar("registro_hogares"); //document.getElementById('viv_reg_hogares').value;
-        var viv_tramo_grupo = capturar("e_encuesta"); //document.getElementById('viv_tramo_grupo').value;
-        var viv_ben_subsidio = capturar("benef_sub"); //document.getElementById('viv_ben_subsidio').value;
-        var viv_otro_subsidio = capturar_checkbox("bonos"); //document.getElementById('viv_otro_subsidio').value;
+    if (esValido()) {
+        db.transaction(function (tx) {
+            var viv_tenencia = capturar("viv_tenencia"); //document.getElementById('viv_tenencia').value;
+            var viv_sitio = capturar("sit_tenencia"); //document.getElementById('viv_sitio').value;
+            var viv_post_subsidio = capturar("p_subsidio"); //document.getElementById('viv_post_subsidio').value;
+            var viv_libreta = capturar("libreta"); //document.getElementById('viv_libreta').value;
+            var viv_libreta_anio = document.getElementById('viv_libreta_anio').value;
+            var viv_monto_ahorro = document.getElementById('viv_monto_ahorro').value;
+            var viv_fam_ocupante = capturar("ocupante"); // document.getElementById('viv_fam_ocupante').value;
+            var viv_num_personas = document.getElementById('viv_num_personas').value;
+            var viv_num_dormitorios = document.getElementById('viv_num_dormitorios').value;
+            var viv_prov_agua = capturar("agua"); //document.getElementById('viv_prov_agua').value;
+            var viv_sub_agua = capturar("s_agua"); //document.getElementById('viv_sub_agua').value;
+            var viv_ener_electrica = capturar("energia"); //document.getElementById('viv_ener_electrica').value;
+            var viv_elim_excretas = capturar("excretas"); //document.getElementById('viv_elim_excretas').value;
+            var viv_reg_hogares = capturar("registro_hogares"); //document.getElementById('viv_reg_hogares').value;
+            var viv_tramo_grupo = capturar("e_encuesta"); //document.getElementById('viv_tramo_grupo').value;
+            var viv_ben_subsidio = capturar("benef_sub"); //document.getElementById('viv_ben_subsidio').value;
+            var viv_otro_subsidio = capturar_checkbox("bonos"); //document.getElementById('viv_otro_subsidio').value;
 
-        if (existe === 0) {
-            tx.executeSql('INSERT INTO encuesta_vivienda(encuesta_id,viv_tenencia,viv_sitio,viv_post_subsidio,viv_libreta,viv_libreta_anio,viv_monto_ahorro,viv_fam_ocupante,viv_num_personas,viv_num_dormitorios,viv_prov_agua,viv_sub_agua,viv_ener_electrica,viv_elim_excretas,viv_reg_hogares,viv_tramo_grupo,viv_ben_subsidio,viv_otro_subsidio) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
-                    , [encuesta_id, viv_tenencia, viv_sitio, viv_post_subsidio, viv_libreta, viv_libreta_anio, viv_monto_ahorro, viv_fam_ocupante, viv_num_personas, viv_num_dormitorios, viv_prov_agua, viv_sub_agua, viv_ener_electrica, viv_elim_excretas, viv_reg_hogares, viv_tramo_grupo, viv_ben_subsidio, viv_otro_subsidio]);
+            if (existe === 0) {
+                tx.executeSql('INSERT INTO encuesta_vivienda (encuesta_id,viv_tenencia,viv_sitio,viv_post_subsidio,viv_libreta,viv_libreta_anio,viv_monto_ahorro,viv_fam_ocupante,viv_num_personas,viv_num_dormitorios,viv_prov_agua,viv_sub_agua,viv_ener_electrica,viv_elim_excretas,viv_reg_hogares,viv_tramo_grupo,viv_ben_subsidio,viv_otro_subsidio) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', [encuesta_id, viv_tenencia, viv_sitio, viv_post_subsidio, viv_libreta, viv_libreta_anio, viv_monto_ahorro, viv_fam_ocupante, viv_num_personas, viv_num_dormitorios, viv_prov_agua, viv_sub_agua, viv_ener_electrica, viv_elim_excretas, viv_reg_hogares, viv_tramo_grupo, viv_ben_subsidio, viv_otro_subsidio]);
 
-        } else {
-            alerta("Se actualizara");
-            tx.executeSql('UPDATE encuesta_vivienda SET viv_tenencia=?,viv_sitio=?,viv_post_subsidio=?,viv_libreta=?,viv_libreta_anio=?,viv_monto_ahorro=?,viv_fam_ocupante=?,viv_num_personas=?,viv_num_dormitorios=?,viv_prov_agua=?,viv_sub_agua=?,viv_ener_electrica=?,viv_elim_excretas=?,viv_reg_hogares=?,viv_tramo_grupo=?,viv_ben_subsidio=?,viv_otro_subsidio=? WHERE encuesta_id=?'
-                    , [viv_tenencia, viv_sitio, viv_post_subsidio, viv_libreta, viv_libreta_anio, viv_monto_ahorro, viv_fam_ocupante, viv_num_personas, viv_num_dormitorios, viv_prov_agua, viv_sub_agua, viv_ener_electrica, viv_elim_excretas, viv_reg_hogares, viv_tramo_grupo, viv_ben_subsidio, viv_otro_subsidio, encuesta_id]);
-        }
+            } else {
+                alert("Se actualizara");
+                tx.executeSql('UPDATE encuesta_vivienda SET viv_tenencia=?,viv_sitio=?,viv_post_subsidio=?,viv_libreta=?,viv_libreta_anio=?,viv_monto_ahorro=?,viv_fam_ocupante=?,viv_num_personas=?,viv_num_dormitorios=?,viv_prov_agua=?,viv_sub_agua=?,viv_ener_electrica=?,viv_elim_excretas=?,viv_reg_hogares=?,viv_tramo_grupo=?,viv_ben_subsidio=?,viv_otro_subsidio=? WHERE encuesta_id=?'
+                        , [viv_tenencia, viv_sitio, viv_post_subsidio, viv_libreta, viv_libreta_anio, viv_monto_ahorro, viv_fam_ocupante, viv_num_personas, viv_num_dormitorios, viv_prov_agua, viv_sub_agua, viv_ener_electrica, viv_elim_excretas, viv_reg_hogares, viv_tramo_grupo, viv_ben_subsidio, viv_otro_subsidio, encuesta_id]);
+            }
+            location.href = "../plataforma.html?filemp_id=" + filemp_id + "&encuesta_id=" + encuesta_id;
 
-    });
-
-    window.location.href = "../plataforma.html?filemp_id=" + filemp_id + "&encuesta_id=" + encuesta_id;
+        });
+    } else {
+        alert("Ingrese los campos correctamente para continuar");
+    }
 }
 
 function llenar_encuesta_vivienda() {
@@ -60,7 +62,7 @@ function llenar_encuesta_vivienda() {
 
     db.transaction(function (tx) {
         tx.executeSql('SELECT * FROM encuesta_vivienda WHERE encuesta_id=?', [encuesta_id], function (tx, results) {
-            if (results.rows.length <1) {
+            if (results.rows.length < 1) {
                 existe = 0;
 
             } else {
@@ -159,5 +161,5 @@ function setear_checkbox(checkboxName, array) {
             }
         }
         document.getElementsByName(checkboxName).item(parseInt(valor) - 1).checked = true;
-    }  
+    }
 }

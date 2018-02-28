@@ -14,11 +14,16 @@ and open the template in the editor.
         <link href="../../../../font/open-iconic-bootstrap.css" rel="stylesheet">
         <!-- Fin Carga de Bootstrap -->
         
+        <!-- Carga JQUERY y otros scripts Necesarios-->
+        <script src="../../../../js/jquery-3.3.1.min.js"></script>
+        <!-- Fin Carga Scripts -->
+        
         <script type="text/javascript" src="encuestaTrabajador.js"></script>
+        <script type="text/javascript" src="validarTrabajador.js"></script>
         <script type="text/javascript">
                                 //borrar_db();
                                 //baseDeDatos();	
-                                crearTablas();
+                                //crearTablas();
                                 llenar_encuesta_trabajador();
                                 //  crear_encuesta();
 
@@ -31,7 +36,7 @@ and open the template in the editor.
     </head>
     <body>
 
-        <ul class="nav nav-pills nav-fill ">
+        <ul class="nav nav-pills nav-fill border border-danger">
             <li class="nav-item">
                 <a class="nav-link " href="../../../inicio/inicio.html">Inicio</a>
             </li>
@@ -80,10 +85,6 @@ and open the template in the editor.
                             <input type="text" class="form-control" id="trab_fec_nacimiento" name="trab_fec_nacimiento" placeholder="Fecha de nacimiento">
                         </div>
 
-                        <div class="form-group">
-                            <label for="trab_fec_nacimiento">Fecha de nacimiento</label>
-                            <input type="text" class="form-control" id="trab_fec_nacimiento" name="trab_fec_nacimiento" placeholder="Fecha de nacimiento">
-                        </div>
 
                         <div class="dropdown-divider"></div>
 
@@ -264,9 +265,7 @@ and open the template in the editor.
 
         </div>
 
-        <!-- Carga JQUERY y otros scripts Necesarios-->
-        <script src="../../../../js/jquery-3.3.1.min.js"></script>
-        <!-- Fin Carga Scripts -->
+        
 
 
         

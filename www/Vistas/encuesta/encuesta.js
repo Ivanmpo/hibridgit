@@ -16,13 +16,8 @@ $(document).ready(function () {
     $('#sel_region').change(function () {
         var region = $(this).val();
         // AJAX request
-        // 
-        // 
         var lista = JSON.parse(localStorage.getItem('listaComunas'));
-        //// ACA QUEDE
         $('#sel_comuna').find('option').not(':first').remove();
-
-        // Add options
 
         for (var comuna of lista) {
             if (comuna['region_id'] === region) {
@@ -44,7 +39,7 @@ $(document).ready(function () {
 
 
 });
-var db = openDatabase('mydb', '1.0', 'Test DB', 1024 * 1024);
+var db = openDatabase('mydb', '1.0', 'Test DB', 20 * 1024 * 1024);
 var id_encuesta;
 
 
@@ -77,7 +72,7 @@ function crearTablas() {
 
     db.transaction(function (tx) {
 
-        tx.executeSql('CREATE TABLE IF NOT EXISTS encuesta (encuesta_id INTEGER PRIMARY KEY AUTOINCREMENT, filial_empresa_id INTEGER NOT NULL, enc_codigo TEXT NULL, enc_run INTEGER NOT NULL, enc_dv TEXT NOT NULL, enc_nombres TEXT NOT NULL, enc_apellido_p TEXT NOT NULL, enc_apellido_m TEXT NULL, comuna_id INTEGER NOT NULL, usuario_id INTEGER NOT NULL, enc_fecha INTEGER NOT NULL, enc_estado INTEGER NOT NULL )');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS encuesta(encuesta_id INTEGER PRIMARY KEY AUTOINCREMENT, filial_empresa_id INTEGER NOT NULL, enc_codigo TEXT NULL, enc_run INTEGER NOT NULL, enc_dv TEXT NOT NULL, enc_nombres TEXT NOT NULL, enc_apellido_p TEXT NOT NULL, enc_apellido_m TEXT NULL, comuna_id INTEGER NOT NULL, usuario_id INTEGER NOT NULL, enc_fecha INTEGER NOT NULL, enc_estado INTEGER NOT NULL )');
         /*tx.executeSql('CREATE TABLE IF NOT EXISTS encuesta_educacion(encuesta_educacion_id INTEGER PRIMARY KEY AUTOINCREMENT,encuesta_id INTEGER NOT NULL,edu_nivel_esc INTEGER NOT NULL, edu_tipo_est INTEGER NULL, edu_ult_curso INTEGER NULL, edu_anio_egreso INTEGER NULL, edu_estudiando INTEGER NOT NULL, edu_becas TEXT NULL)');
          tx.executeSql('CREATE TABLE IF NOT EXISTS encuesta_salud(encuesta_salud_id INTEGER PRIMARY KEY AUTOINCREMENT, encuesta_id INTEGER NOT NULL, sad_cont_menores INTEGER NOT NULL, sad_cons_drogas INTEGER NOT NULL, sad_cons_drogas_d TEXT NULL, sad_pat_ges TEXT NULL, sad_usa_prevision INTEGER NOT NULL, sad_cond_permanente TEXT NULL)');
          tx.executeSql('CREATE TABLE IF NOT EXISTS encuesta_trabajador(encuesta_trabajador_id INTEGER PRIMARY KEY AUTOINCREMENT,encuesta_id INTEGER NOT NULL, trab_dir_calle TEXT NOT NULL, trab_dir_numero INTEGER NOT NULL, trab_dir_sector TEXT NULL, trab_tel_fijo TEXT NULL, trab_tel_movil TEXT NOT NULL, trab_fec_nacimiento INTEGER NOT NULL, trab_genero INTEGER NOT NULL, trab_jefe_familia INTEGER NOT NULL, trab_ant_indigenas INTEGER NOT NULL, trab_est_civil INTEGER NOT NULL, trab_nacionalidad INTEGER NOT NULL, trab_prev_salud INTEGER NOT NULL, trab_prev_salud_d TEXT NOT NULL, trab_prev_social TEXT NOT NULL)');
@@ -92,8 +87,22 @@ function crearTablas() {
 
 function crear_encuesta() {
     var filemp_id = getp('filemp_id');
+    var user_id;
+    if (sessionStorage.getItem("tipo")) {
+        if (sessionStorage.getItem("tipo") === "1") {
+            user_id = localStorage.getItem('user_id');
+
+        } else {
+
+            user_id = sessionStorage.getItem('user_id');
+        }
+    }
+
+
+
 
     db.transaction(function (tx) {
+
 
         var filial_empresa_id = getp("filemp_id");
         var enc_codigo = "";
@@ -105,22 +114,23 @@ function crear_encuesta() {
         var comuna_id = document.getElementById('sel_comuna').value;
 
         //var usuario_id = document.getElementById('usuario_id').value;
-        var usuario_id = sessionStorage.getItem('user_id');
+        var usuario_id = user_id;
         var enc_fecha = "0";
         var enc_estado = "1";
-        
-        tx.executeSql('SELECT * FROM encuesta WHERE enc_run=' + enc_run + ';', [], function (tx, results) {
 
-            if (results.rows.length > 0) {
-                alert("Persona ya existe");
-
-            } else {
-                tx.executeSql('INSERT INTO encuesta(filial_empresa_id,enc_codigo,enc_run,enc_dv,enc_nombres,enc_apellido_p,enc_apellido_m,comuna_id,usuario_id,enc_fecha,enc_estado) VALUES(?,?,?,?,?,?,?,?,?,?,?)'
-                        , [filial_empresa_id, enc_codigo, enc_run, enc_dv, enc_nombres, enc_apellido_p, enc_apellido_m, comuna_id, usuario_id, enc_fecha, enc_estado]);
-                alert("Encuesta creada");
-                window.location.href = "../listaencuestas/listaencuestas.html?filemp_id=" + filemp_id;
-            }
-        });
+        /*
+         tx.executeSql('SELECT * FROM encuesta WHERE enc_run=' + enc_run + ';', [], function (tx, results) {
+         
+         if (results.rows.length > 0) {
+         alert("Persona ya existe");
+         
+         } else {*/
+        tx.executeSql('INSERT INTO encuesta(filial_empresa_id,enc_codigo,enc_run,enc_dv,enc_nombres,enc_apellido_p,enc_apellido_m,comuna_id,usuario_id,enc_fecha,enc_estado) VALUES(?,?,?,?,?,?,?,?,?,?,?)'
+                , [filial_empresa_id, enc_codigo, enc_run, enc_dv, enc_nombres, enc_apellido_p, enc_apellido_m, comuna_id, usuario_id, enc_fecha, enc_estado]);
+        alert("Encuesta creada");
+        window.location.href = "../listaencuestas/listaencuestas.html?filemp_id=" + filemp_id;
+        // }
+        //});
 
 
 
@@ -150,12 +160,8 @@ function guardar_encuesta() {
                 [filial_empresa_id, enc_codigo, enc_run, enc_dv, enc_nombres, enc_apellido_p, enc_apellido_m, comuna_id, usuario_id, enc_fecha, enc_estado, id]);
     });
 
-  
+
 }
-
-
-
-//$("#filial_empresa_id").val(getp("filemp_id"));
 
 
 function getp(sParametroNombre) {

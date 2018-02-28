@@ -6,14 +6,14 @@ var filemp_id = getp('filemp_id');
 var encuesta_familia_id = getp('encuesta_familia_id');
 var existe = 0;
 
-$(document).ready(function(){
-    
-   $("#gotoplataforma").click(function () {
-        window.location.href = "../../plataforma.html?filemp_id="+ filemp_id +"&encuesta_id=" + encuesta_id;
-    }); 
+$(document).ready(function () {
+
+    $("#gotoplataforma").click(function () {
+        window.location.href = "../../plataforma.html?filemp_id=" + filemp_id + "&encuesta_id=" + encuesta_id;
+    });
 });
 
-
+/*
 function crearTablas() {
     db.transaction(function (tx) {
 
@@ -21,60 +21,65 @@ function crearTablas() {
 
     });
 }
-
+*/
 function guardar_familia_datos() {
-    //id_ultimo('SELECT * FROM encuesta_familia;',function (id_familiar){
-    db.transaction(function (tx) {
-        var fam_jefe_familia = capturar("fam_jefe_familia"); //document.getElementById('fam_jefe_familia').value;
-        var fam_es_carga = capturar("fam_es_carga"); //document.getElementById('fam_es_carga').value;
-        var fam_parentezco = capturar("fam_parentezco"); //((document.getElementById('fam_parentezco').value;
-        var fam_ant_indigena = capturar("fam_ant_indigena");  //document.getElementById('fam_ant_indigena').value;
-        var fam_padre_profesor = capturar("fam_padre_profesor"); //document.getElementById('fam_padre_profesor').value;
-        var fam_cond_perm = capturar_checkbox("fam_cond_perm");  //document.getElementById('fam_cond_perm').value;
-        var fam_ges = document.getElementById('fam_ges').value;
-        var fam_usa_prevsalud = capturar("fam_usa_prevsalud"); //document.getElementById('fam_usa_prevsalud').value;
-        var fam_trabajando = capturar("fam_trabajando"); //document.getElementById('fam_trabajando').value;
-        var fam_sit_contrato = capturar("fam_sit_contrato"); //document.getElementById('fam_sit_contrato').value;
-        var fam_sit_nolaboral = capturar("fam_sit_nolaboral"); //document.getElementById('fam_sit_nolaboral').value;
-        var fam_det_pension = capturar("fam_det_pension"); //document.getElementById('fam_det_pension').value;
-        var fam_meses_cesante = document.getElementById('fam_meses_cesante').value;
-        var fam_inicio_activ = capturar("fam_inicio_activ"); //document.getElementById('fam_inicio_activ').value;
-        var fam_matriculado = capturar("fam_matriculado"); //document.getElementById('fam_matriculado').value;
-        var fam_nivel_educ = capturar("fam_nivel_educ");  //document.getElementById('fam_nivel_educ').value;
-        var fam_tipo_est = capturar("fam_tipo_est");  //document.getElementById('fam_tipo_est').value;
-        var fam_ult_curso = capturar("fam_ult_curso"); //document.getElementById('fam_ult_curso').value;
-        var fam_fin_estudios = document.getElementById('fam_fin_estudios').value;
-        var fam_rindio_psu = document.getElementById('fam_rindio_psu').value;
-        var fam_anio_psu = document.getElementById('fam_anio_psu').value;
-        var fam_puntaje_psu = document.getElementById('fam_puntaje_psu').value;
-        var fam_ult_promedio = document.getElementById('fam_ult_promedio').value;
-        var fam_fin_educsup = capturar("fam_fin_educsup"); //   document.getElementById('fam_fin_educsup').value;
-        var fam_ibruto_mes1 = document.getElementById('fam_ibruto_mes1').value;
-        var fam_ibruto_mes2 = document.getElementById('fam_ibruto_mes2').value;
-        var fam_ibruto_mes3 = document.getElementById('fam_ibruto_mes3').value;
-        var fam_iliquido_mes1 = document.getElementById('fam_iliquido_mes1').value;
-        var fam_iliquido_mes2 = document.getElementById('fam_iliquido_mes2').value;
-        var fam_iliquido_mes3 = document.getElementById('fam_iliquido_mes3').value;
-        var fam_rec_pension = capturar("fam_rec_pension"); //document.getElementById('fam_rec_pension').value;
-        var fam_pension_mes1 = document.getElementById('fam_pension_mes1').value;
-        var fam_pension_mes2 = document.getElementById('fam_pension_mes2').value;
-        var fam_pension_mes3 = document.getElementById('fam_pension_mes3').value;
-        var fam_rec_otros = capturar("fam_rec_otros"); //document.getElementById('fam_rec_otros').value;
-        var fam_otros_mes1 = document.getElementById('fam_otros_mes1').value;
-        var fam_otros_mes2 = document.getElementById('fam_otros_mes2').value;
-        var fam_otros_mes3 = document.getElementById('fam_otros_mes3').value;
+    if (esValido()) {
+        db.transaction(function (tx) {
+            var fam_jefe_familia = capturar("fam_jefe_familia"); //document.getElementById('fam_jefe_familia').value;
+            var fam_es_carga = capturar("fam_es_carga"); //document.getElementById('fam_es_carga').value;
+            var fam_parentezco = capturar("fam_parentezco"); //((document.getElementById('fam_parentezco').value;
+            var fam_ant_indigena = capturar("fam_ant_indigena");  //document.getElementById('fam_ant_indigena').value;
+            var fam_padre_profesor = capturar("fam_padre_profesor"); //document.getElementById('fam_padre_profesor').value;
+            var fam_cond_perm = capturar_checkbox("fam_cond_perm");  //document.getElementById('fam_cond_perm').value;
+            var fam_ges = document.getElementById('fam_ges').value;
+            var fam_usa_prevsalud = capturar("fam_usa_prevsalud"); //document.getElementById('fam_usa_prevsalud').value;
+            var fam_trabajando = capturar("fam_trabajando"); //document.getElementById('fam_trabajando').value;
+            var fam_sit_contrato = capturar("fam_sit_contrato"); //document.getElementById('fam_sit_contrato').value;
+            var fam_sit_nolaboral = capturar("fam_sit_nolaboral"); //document.getElementById('fam_sit_nolaboral').value;
+            var fam_det_pension = capturar_checkbox("fam_det_pension"); //document.getElementById('fam_det_pension').value;
+            var fam_meses_cesante = document.getElementById('fam_meses_cesante').value;
+            var fam_inicio_activ = capturar("fam_inicio_activ"); //document.getElementById('fam_inicio_activ').value;
+            var fam_matriculado = capturar("fam_matriculado"); //document.getElementById('fam_matriculado').value;
+            var fam_nivel_educ = capturar("fam_nivel_educ");  //document.getElementById('fam_nivel_educ').value;
+            var fam_tipo_est = capturar("fam_tipo_est");  //document.getElementById('fam_tipo_est').value;
+            var fam_ult_curso = capturar("fam_ult_curso"); //document.getElementById('fam_ult_curso').value;
+            var fam_fin_estudios = document.getElementById('fam_fin_estudios').value;
+            var fam_rindio_psu = document.getElementById('fam_rindio_psu').value;
+            var fam_anio_psu = document.getElementById('fam_anio_psu').value;
+            var fam_puntaje_psu = document.getElementById('fam_puntaje_psu').value;
+            var fam_ult_promedio = document.getElementById('fam_ult_promedio').value;
+            var fam_fin_educsup = capturar("fam_fin_educsup"); //   document.getElementById('fam_fin_educsup').value;
+            var fam_ibruto_mes1 = document.getElementById('fam_ibruto_mes1').value;
+            var fam_ibruto_mes2 = document.getElementById('fam_ibruto_mes2').value;
+            var fam_ibruto_mes3 = document.getElementById('fam_ibruto_mes3').value;
+            var fam_iliquido_mes1 = document.getElementById('fam_iliquido_mes1').value;
+            var fam_iliquido_mes2 = document.getElementById('fam_iliquido_mes2').value;
+            var fam_iliquido_mes3 = document.getElementById('fam_iliquido_mes3').value;
+            var fam_rec_pension = capturar("fam_rec_pension"); //document.getElementById('fam_rec_pension').value;
+            var fam_pension_mes1 = document.getElementById('fam_pension_mes1').value;
+            var fam_pension_mes2 = document.getElementById('fam_pension_mes2').value;
+            var fam_pension_mes3 = document.getElementById('fam_pension_mes3').value;
+            var fam_rec_otros = capturar("fam_rec_otros"); //document.getElementById('fam_rec_otros').value;
+            var fam_otros_mes1 = document.getElementById('fam_otros_mes1').value;
+            var fam_otros_mes2 = document.getElementById('fam_otros_mes2').value;
+            var fam_otros_mes3 = document.getElementById('fam_otros_mes3').value;
 
-        if (existe === 0) {
-            tx.executeSql('INSERT INTO familia_datos(encuesta_familia_id,fam_jefe_familia,fam_es_carga,fam_parentezco,fam_ant_indigena,fam_padre_profesor,fam_cond_perm,fam_ges,fam_usa_prevsalud,fam_trabajando,fam_sit_contrato,fam_sit_nolaboral,fam_det_pension,fam_meses_cesante,fam_inicio_activ,fam_matriculado,fam_nivel_educ,fam_tipo_est,fam_ult_curso,fam_fin_estudios,fam_rindio_psu,fam_anio_psu,fam_puntaje_psu,fam_ult_promedio,fam_fin_educsup,fam_ibruto_mes1,fam_ibruto_mes2,fam_ibruto_mes3,fam_iliquido_mes1,fam_iliquido_mes2,fam_iliquido_mes3,fam_rec_pension,fam_pension_mes1,fam_pension_mes2,fam_pension_mes3,fam_rec_otros,fam_otros_mes1,fam_otros_mes2,fam_otros_mes3) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
-                    , [encuesta_familia_id, fam_jefe_familia, fam_es_carga, fam_parentezco, fam_ant_indigena, fam_padre_profesor, fam_cond_perm, fam_ges, fam_usa_prevsalud, fam_trabajando, fam_sit_contrato, fam_sit_nolaboral, fam_det_pension, fam_meses_cesante, fam_inicio_activ, fam_matriculado, fam_nivel_educ, fam_tipo_est, fam_ult_curso, fam_fin_estudios, fam_rindio_psu, fam_anio_psu, fam_puntaje_psu, fam_ult_promedio, fam_fin_educsup, fam_ibruto_mes1, fam_ibruto_mes2, fam_ibruto_mes3, fam_iliquido_mes1, fam_iliquido_mes2, fam_iliquido_mes3, fam_rec_pension, fam_pension_mes1, fam_pension_mes2, fam_pension_mes3, fam_rec_otros, fam_otros_mes1, fam_otros_mes2, fam_otros_mes3]);
-        } else {
+            if (existe === 0) {
+                tx.executeSql('INSERT INTO familia_datos(encuesta_familia_id,fam_jefe_familia,fam_es_carga,fam_parentezco,fam_ant_indigena,fam_padre_profesor,fam_cond_perm,fam_ges,fam_usa_prevsalud,fam_trabajando,fam_sit_contrato,fam_sit_nolaboral,fam_det_pension,fam_meses_cesante,fam_inicio_activ,fam_matriculado,fam_nivel_educ,fam_tipo_est,fam_ult_curso,fam_fin_estudios,fam_rindio_psu,fam_anio_psu,fam_puntaje_psu,fam_ult_promedio,fam_fin_educsup,fam_ibruto_mes1,fam_ibruto_mes2,fam_ibruto_mes3,fam_iliquido_mes1,fam_iliquido_mes2,fam_iliquido_mes3,fam_rec_pension,fam_pension_mes1,fam_pension_mes2,fam_pension_mes3,fam_rec_otros,fam_otros_mes1,fam_otros_mes2,fam_otros_mes3) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
+                        , [encuesta_familia_id, fam_jefe_familia, fam_es_carga, fam_parentezco, fam_ant_indigena, fam_padre_profesor, fam_cond_perm, fam_ges, fam_usa_prevsalud, fam_trabajando, fam_sit_contrato, fam_sit_nolaboral, fam_det_pension, fam_meses_cesante, fam_inicio_activ, fam_matriculado, fam_nivel_educ, fam_tipo_est, fam_ult_curso, fam_fin_estudios, fam_rindio_psu, fam_anio_psu, fam_puntaje_psu, fam_ult_promedio, fam_fin_educsup, fam_ibruto_mes1, fam_ibruto_mes2, fam_ibruto_mes3, fam_iliquido_mes1, fam_iliquido_mes2, fam_iliquido_mes3, fam_rec_pension, fam_pension_mes1, fam_pension_mes2, fam_pension_mes3, fam_rec_otros, fam_otros_mes1, fam_otros_mes2, fam_otros_mes3]);
+            } else {
 
 
-            tx.executeSql('UPDATE familia_datos SET fam_jefe_familia=?,fam_es_carga=?,fam_parentezco=?,fam_ant_indigena=?,fam_padre_profesor=?,fam_cond_perm=?,fam_ges=?,fam_usa_prevsalud=?,fam_trabajando=?,fam_sit_contrato=?,fam_sit_nolaboral=?,fam_det_pension=?,fam_meses_cesante=?,fam_inicio_activ=?,fam_matriculado=?,fam_nivel_educ=?,fam_tipo_est=?,fam_ult_curso=?,fam_fin_estudios=?,fam_rindio_psu=?,fam_anio_psu=?,fam_puntaje_psu=?,fam_ult_promedio=?,fam_fin_educsup=?,fam_ibruto_mes1=?,fam_ibruto_mes2=?,fam_ibruto_mes3=?,fam_iliquido_mes1=?,fam_iliquido_mes2=?,fam_iliquido_mes3=?,fam_rec_pension=?,fam_pension_mes1=?,fam_pension_mes2=?,fam_pension_mes3=?,fam_rec_otros=?,fam_otros_mes1=?,fam_otros_mes2=?,fam_otros_mes3=? WHERE encuesta_familia_id=?'
-                    , [fam_jefe_familia, fam_es_carga, fam_parentezco, fam_ant_indigena, fam_padre_profesor, fam_cond_perm, fam_ges, fam_usa_prevsalud, fam_trabajando, fam_sit_contrato, fam_sit_nolaboral, fam_det_pension, fam_meses_cesante, fam_inicio_activ, fam_matriculado, fam_nivel_educ, fam_tipo_est, fam_ult_curso, fam_fin_estudios, fam_rindio_psu, fam_anio_psu, fam_puntaje_psu, fam_ult_promedio, fam_fin_educsup, fam_ibruto_mes1, fam_ibruto_mes2, fam_ibruto_mes3, fam_iliquido_mes1, fam_iliquido_mes2, fam_iliquido_mes3, fam_rec_pension, fam_pension_mes1, fam_pension_mes2, fam_pension_mes3, fam_rec_otros, fam_otros_mes1, fam_otros_mes2, fam_otros_mes3, encuesta_familia_id]);
-        }
-    });
-    window.location.href = "../encuestaFamilia.html?filemp_id=" + filemp_id + "&encuesta_id=" + encuesta_id;
+                tx.executeSql('UPDATE familia_datos SET fam_jefe_familia=?,fam_es_carga=?,fam_parentezco=?,fam_ant_indigena=?,fam_padre_profesor=?,fam_cond_perm=?,fam_ges=?,fam_usa_prevsalud=?,fam_trabajando=?,fam_sit_contrato=?,fam_sit_nolaboral=?,fam_det_pension=?,fam_meses_cesante=?,fam_inicio_activ=?,fam_matriculado=?,fam_nivel_educ=?,fam_tipo_est=?,fam_ult_curso=?,fam_fin_estudios=?,fam_rindio_psu=?,fam_anio_psu=?,fam_puntaje_psu=?,fam_ult_promedio=?,fam_fin_educsup=?,fam_ibruto_mes1=?,fam_ibruto_mes2=?,fam_ibruto_mes3=?,fam_iliquido_mes1=?,fam_iliquido_mes2=?,fam_iliquido_mes3=?,fam_rec_pension=?,fam_pension_mes1=?,fam_pension_mes2=?,fam_pension_mes3=?,fam_rec_otros=?,fam_otros_mes1=?,fam_otros_mes2=?,fam_otros_mes3=? WHERE encuesta_familia_id=?'
+                        , [fam_jefe_familia, fam_es_carga, fam_parentezco, fam_ant_indigena, fam_padre_profesor, fam_cond_perm, fam_ges, fam_usa_prevsalud, fam_trabajando, fam_sit_contrato, fam_sit_nolaboral, fam_det_pension, fam_meses_cesante, fam_inicio_activ, fam_matriculado, fam_nivel_educ, fam_tipo_est, fam_ult_curso, fam_fin_estudios, fam_rindio_psu, fam_anio_psu, fam_puntaje_psu, fam_ult_promedio, fam_fin_educsup, fam_ibruto_mes1, fam_ibruto_mes2, fam_ibruto_mes3, fam_iliquido_mes1, fam_iliquido_mes2, fam_iliquido_mes3, fam_rec_pension, fam_pension_mes1, fam_pension_mes2, fam_pension_mes3, fam_rec_otros, fam_otros_mes1, fam_otros_mes2, fam_otros_mes3, encuesta_familia_id]);
+            }
+            location.href = "../encuestaFamilia.html?filemp_id=" + filemp_id + "&encuesta_id=" + encuesta_id;
+
+        });
+
+    } else {
+        alert("Ingrese los campos correctamente para continuar");
+    }
 }
 
 
@@ -84,7 +89,7 @@ function llenar_familia_datos() {
     db.transaction(function (tx) {
         tx.executeSql('SELECT * FROM familia_datos WHERE encuesta_familia_id=?', [encuesta_familia_id], function (tx, results) {
 
-            if (results.rows.length <1) {
+            if (results.rows.length < 1) {
                 existe = 0;
 
             } else {
@@ -112,8 +117,8 @@ function llenar_familia_datos() {
                 $('input[name=fam_trabajando][value=' + results.rows.item(0).fam_trabajando + ']').prop("checked", true);
                 $('input[name=fam_sit_contrato][value=' + results.rows.item(0).fam_sit_contrato + ']').prop("checked", true);
                 $('input[name=fam_sit_nolaboral][value=' + results.rows.item(0).fam_sit_nolaboral + ']').prop("checked", true);
-                $('input[name=fam_det_pension][value=' + results.rows.item(0).fam_det_pension + ']').prop("checked", true);
-
+                //$('input[name=fam_det_pension][value=' + results.rows.item(0).fam_det_pension + ']').prop("checked", true);
+                setear_checkbox('fam_det_pension', results.rows.item(0).fam_det_pension);
                 /*
                  document.f_pre.fam_usa_prevsalud.value = results.rows.item(0).fam_usa_prevsalud;
                  document.f_mayor.fam_trabajando.value = results.rows.item(0).fam_trabajando;
@@ -222,5 +227,5 @@ function setear_checkbox(checkboxName, array) {
             }
         }
         document.getElementsByName(checkboxName).item(parseInt(valor) - 1).checked = true;
-    }  
+    }
 }

@@ -4,21 +4,22 @@ var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
 var encuesta_id = getp('encuesta_id');
 var filemp_id = getp('filemp_id');
 
-$(document).ready(function(){
-    
-   $("#gotoplataforma").click(function () {
-        window.location.href = "../../plataforma.html?filemp_id="+ filemp_id +"&encuesta_id=" + encuesta_id;
-    }); 
+$(document).ready(function () {
+
+    $("#gotoplataforma").click(function () {
+        window.location.href = "../../plataforma.html?filemp_id=" + filemp_id + "&encuesta_id=" + encuesta_id;
+    });
 });
 
+/*
 function crearTablas() {
-    
+
     db.transaction(function (tx) {
         tx.executeSql('CREATE TABLE IF NOT EXISTS encuesta_familia(encuesta_familia_id INTEGER PRIMARY KEY AUTOINCREMENT, encuesta_id INTEGER NOT NULL, fam_run INTEGER NOT NULL, fam_dv TEXT NOT NULL, fam_nombres TEXT NOT NULL, fam_apellido_p TEXT NOT NULL,fam_apellido_m TEXT NOT NULL, fam_fec_nacimiento INTEGER NOT NULL, fam_genero INTEGER NOT NULL, fam_nac_chilena INTEGER NOT NULL)');
 
     });
 }
-
+*/
 
 function guardar_encuesta_familia() {
     db.transaction(function (tx) {
@@ -31,7 +32,7 @@ function guardar_encuesta_familia() {
         var fam_genero = capturar("fam_genero"); //document.getElementById('fam_genero').value;
         var fam_nac_chilena = capturar("nacionalidad_fam"); //document.getElementById('fam_nac_chilena').value;
         tx.executeSql('SELECT * FROM encuesta_familia WHERE fam_run=' + fam_run + ';', [], function (tx, results) {
-            
+
             if (results.rows.length > 0) {
                 alert("Persona ya existe");
 
@@ -40,7 +41,7 @@ function guardar_encuesta_familia() {
 
                 tx.executeSql('INSERT INTO encuesta_familia(encuesta_id,fam_run,fam_dv,fam_nombres,fam_apellido_p,fam_apellido_m,fam_fec_nacimiento,fam_genero,fam_nac_chilena) VALUES(?,?,?,?,?,?,?,?,?)'
                         , [encuesta_id, fam_run, fam_dv, fam_nombres, fam_apellido_p, fam_apellido_m, fam_fec_nacimiento, fam_genero, fam_nac_chilena]);
-                        alert("Encuesta creada");
+                alert("Encuesta creada");
                 window.location.href = "../encuestaFamilia.html?filemp_id=" + filemp_id + "&encuesta_id=" + encuesta_id;
             }
         });
